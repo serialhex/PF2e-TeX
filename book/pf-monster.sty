@@ -1,0 +1,209 @@
+% Monster environment sty file
+\RequirePackage{fp}
+%\usepackage[nomessages]{fp}
+\RequirePackage{xstring}
+\usepackage{graphicx,calc}
+\usepackage{ragged2e}
+\usepackage{changepage}
+
+% Macro to print stats with autocomputed modifier
+% e.g. \stat{12} prints "12 (+1)"
+\newcommand{\stat}[1]{%
+  \FPeval{\mod}{(#1 - 10)/2}%
+  \FPifpos\mod%
+  \FPeval{\mod}{clip(trunc(mod,0))}#1\ (+\mod)%
+  \else%
+  \FPeval{\mod}{clip(abs(trunc(mod-0.5,0)))}#1\ (\(-\)\mod)%
+  \fi%
+}
+
+% Macro to print avarage dice based value
+% e.g. \pfdice{2d6+3} prints "10 (2d6 + 3)"
+\newcommand{\pfdice}[1]{%
+  \StrSubstitute{#1}{ }{}[\DiceArg]%        strip whitespaces
+  \StrCut{\DiceArg}{d}\DiceNum\DiceSides%      split string
+  \StrCut{\DiceSides}{+}\DiceSides\DiceAddMod%
+  \StrCut{\DiceSides}{-}\DiceSides\DiceSubMod%
+  \FPeval{\DiceAvg}{(\DiceSides+1)/2*\DiceNum}%  calculate avg roll
+  \IfInteger{\DiceAddMod}{%
+    \FPadd{\DiceAvg}{\DiceAvg}{\DiceAddMod}%  add value
+    \def\DiceMod{ + \DiceAddMod}%
+  }{%
+    \IfInteger{\DiceSubMod}{%
+      \FPsub{\DiceAvg}{\DiceAvg}{\DiceSubMod}%  subtract value
+      \def\DiceMod{ \(-\) \DiceSubMod}%
+    }{%
+      \def\DiceMod{}%
+    }%
+  }%
+  \FPtrunc{\DiceAvg}{\DiceAvg}{0}%        round down
+  \FPprint{\DiceAvg\ (\DiceNum d\DiceSides\DiceMod)}%
+}
+
+% Monster box made to look like the Monster Manual NPC definitions
+\newtcolorbox{monsterboxnobg}[3][]{
+  enhanced,
+  frame hidden,
+  boxrule=0pt,
+  breakable,
+  boxsep=0pt,
+  toptitle=3mm,
+  left=0pt,
+  right=0pt,
+  arc=0mm,
+  opacityback=0,
+  colframe=title1,
+  fonttitle=\pf@StatBlockTitleFont,
+  fontupper=\pf@StatBlockBodyFont,
+  title={#2 \hfill #3},
+  coltitle=creature,
+  #1
+}
+
+% Stat block made to look like stat blocks in the PHB.
+\newtcolorbox{monsterboxbg}[2][]{
+  enhanced,
+  frame hidden,
+  before skip=7pt plus 2pt,
+  boxrule=0pt,
+  breakable,
+  boxsep=0pt,
+  toptitle=11pt,
+  left=7pt,
+  right=7pt,
+  bottom=11pt,
+  arc=0mm,
+  oversize=0pt,
+  borderline north={4pt}{0pt}{title1},
+  borderline north={2.5pt}{0.75pt}{statblockribbon},
+  borderline south={4pt}{0pt}{title1},
+  borderline south={2.5pt}{0.75pt}{statblockribbon},
+  colback=statblockbg,
+  colbacktitle=statblockbg,
+  colframe=title1,
+  fonttitle=\pf@StatBlockTitleFont,
+  coltitle=title1,
+  fontupper=\pf@StatBlockBodyFont,
+  title=#2,
+  #1
+}
+
+\iftoggle{bool-bg}{
+  \let\monsterbox\monsterboxbg%
+  \let\endmonsterbox\endmonsterboxbg%
+}{
+  \let\monsterbox\monsterboxnobg%
+  \let\endmonsterbox\endmonsterboxnobg%
+}
+
+% A pf@monsterattrs helper macro that always displays an attribute.
+\newcommand{\pf@monsterattr}[2]{%
+  \textbf{#2} \commandkey{#1}%
+}
+
+
+% A pf@monsterattrs helper macro that displays an attribute if the user defined
+% it.
+\newcommand{\pf@ifmonsterattr}[2]{%
+  \ifcommandkey{#1}{%
+    ; \textbf{#2} \commandkey{#1}%
+  }{}%
+}
+
+%
+% Macros for use within the monster environment
+%
+\newkeycommand\basics[
+    perception=0,
+    languages=-,
+    skills=+0,
+    str=+0,
+    dex=+0,
+    con=+0,
+    int=+0,
+    wis=+0,
+    cha=+0,
+    items=,
+    interact=,
+    traits=,
+    ac=10,
+    tac=10,
+    fort=0,
+    ref=0,
+    will=0,
+    cond=,
+    hp=1,
+    immune=,
+    resist=,
+    weak=,
+    aura=,
+    ]{%
+\begingroup
+\hrulefill
+\par
+\traits{\commandkey{traits}}
+
+\raggedright
+\noindent
+\pf@monsterattr{perception}{\perceptionname}\\
+\pf@monsterattr{languages}{\languagesname}\\
+\pf@monsterattr{skills}{\skillsname}\\
+
+\textbf{\strstatname}~\commandkey{str}, \nolinebreak
+\textbf{\dexstatname}~\commandkey{dex}, \nolinebreak
+\textbf{\constatname}~\commandkey{con}, \nolinebreak[3]
+\textbf{\intstatname}~\commandkey{int}, \nolinebreak[3]
+\textbf{\wisstatname}~\commandkey{wis}, \nolinebreak[2]
+\textbf{\chastatname}~\commandkey{cha}\\
+
+\ifcommandkey{items}{%
+\textbf{\itemsname} \commandkey{items}%
+\ifcommandkey{interact}{; }{}
+}{}
+\ifcommandkey{interact}{%
+\textbf{\interactname} \commandkey{interact}%
+}{}
+
+\hrulefill
+
+\pf@monsterattr{ac}{\acname},
+\pf@monsterattr{tac}{\tacname},
+\pf@monsterattr{fort}{\fortitudename},
+\pf@monsterattr{ref}{\reflexname},
+\pf@monsterattr{will}{\willname}\\
+
+\pf@monsterattr{hp}{\hpname}%
+\pf@ifmonsterattr{immune}{\immname}%
+\pf@ifmonsterattr{resist}{\resistname}%
+\pf@ifmonsterattr{weak}{\weakname}%
+\pf@ifmonsterattr{aura}{\auraname}
+
+\hrulefill
+\endgroup
+}
+
+\newkeycommand\stats[
+  ac=10,
+  tac=10,
+  fort=0,
+  ref=0,
+  will=0,
+  hp=1,
+  immune=,
+  resist=,
+  weak=,
+  aura=,
+  ]{%
+  % \begin{pf@monsterattrs}
+    \pf@monsterattr{ac}{\acname}
+    \pf@monsterattr{tac}{\tacname}
+    \pf@monsterattr{fort}{\fortitudename}
+    \pf@monsterattr{ref}{\reflexname}
+    \pf@monsterattr{will}{\willname}
+    \pf@monsterattr{hp}{\hpname}
+    \pf@ifmonsterattr{immune}{\immname}
+    \pf@ifmonsterattr{resist}{\resistname}
+    \pf@ifmonsterattr{weak}{\weakname}
+    \pf@ifmonsterattr{aura}{\auraname}
+  % \end{pf@monsterattrs}%
+}

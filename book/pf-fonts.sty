@@ -1,0 +1,83 @@
+\RequirePackage{bookman}
+\RequirePackage[T1]{fontenc}
+\usepackage{fontspec}
+
+\renewcommand{\sfdefault}{lmss}
+% \renewcommand{\rmdefault}{lmr}
+
+\newcommand{\pf@TitleFont}{\normalfont\scshape\Huge}
+
+\newcommand{\pf@TableTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape}
+\newcommand{\pf@TableBodyFont}{\sffamily}
+
+\newcommand{\pf@BoxTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\color{black}}
+\newcommand{\pf@BoxBodyFont}{\sffamily}
+
+\newcommand{\pf@StatBlockTitleFont}{\gothic\LARGE}
+\newcommand{\pf@StatBlockSubtitleFont}{\gothic}
+\newcommand{\pf@StatBlockBodyFont}{\junction\footnotesize}
+
+\newcommand{\pf@FooterFont}{\normalfont\scshape}
+\newcommand{\pf@PageNumberFont}{\normalfont}
+
+% Used Fonts, I should keep these.
+\newfontfamily\gothic[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic
+]{LeagueGothic}
+
+\newfontfamily\junction[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *-light,
+  BoldFont = *-bold
+]{Junction}
+
+% Unused Fonts, will probably get rid of them
+\newfontfamily\nodesto[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *,
+  BoldFont = *Bold,
+  ItalicFont = *Italic,
+  BoldItalicFont = *BoldItalic,
+]{NodestoCapsCondensed}
+
+\newfontfamily\prociono[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *
+]{Prociono}
+
+
+\newfontfamily\gothiccond[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *Regular,
+  ItalicFont = *Italic
+]{LeagueGothic-Condensed}
+
+\newfontfamily\lindinhill[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *,
+  ItalicFont = *-Italic
+]{LindenHill}
+
+\setmainfont{Cambria}
+
+% StrokeColor, FillColor, StrokeWidth, Text
+\newcommand*{\fillstroke}[4]{%
+% this is black magic
+% ref: http://tex.stackexchange.com/a/225639/125447
+% Tr: rendering mode (0=Fill, 1=Stroke, 2=FillThenStroke)
+% w: stroke width
+\special{pdf:bcolor #1 #2}%
+\special{pdf:literal direct #3 w 2 Tr}%
+#4%
+% ref: http://project.ktug.org/dvipdfmx/doc/tug2005.pdf
+\special{pdf:ecolor}%
+\special{pdf:literal direct 0 Tr}%
+}

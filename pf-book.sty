@@ -1,0 +1,180 @@
+\ProvidesPackage{lib/pf-book}
+
+%
+% Prerequisite Packages
+%
+
+% Set a different geometry with \newgeometry
+\usepackage[
+  % bindingoffset=15pt, % .2in
+  % hmargin=50pt,       % .7in
+  top=40pt,           % .55in
+  bottom=50pt,        % .7in
+  footskip=30pt,      % makes the footer text line up with the graphic
+  % scale=0.90,
+]{geometry}
+
+% Loaded before tikz to avoid package option conflict with pgf.
+\RequirePackage[table]{xcolor}
+
+\RequirePackage[cm]{fullpage}     % Small margins
+
+\RequirePackage{array}
+\RequirePackage{calc}
+\RequirePackage{enumitem}
+\RequirePackage{ifluatex}
+\RequirePackage{keycommand}
+%\RequirePackage{ragged2e}
+%\RequirePackage[document]{ragged2e}
+%\RequirePackage{microtype}        % Improve ragged2e hyphenation and overfull boxes
+\RequirePackage{tabularx}
+\RequirePackage[most]{tcolorbox}  % used for some boxes
+\RequirePackage{tikz}
+\RequirePackage{xkeyval}
+\RequirePackage{xparse}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{multicol}
+
+% \pf@deprecate{<command or environment>}{<version>}[<suggestion>]
+\DeclareDocumentCommand{\pf@deprecate}{m m o}{%
+  \PackageWarning{pf}{#1 is deprecated and will be removed in version #2.\IfNoValueF{#3}{ #3}}
+}
+
+\usepackage{lipsum}
+%
+% Options
+%
+
+\newtoggle{bool-bg}
+\newtoggle{bool-footer-scroll}
+\DeclareOptionX{bg}[full]{%
+  % This macro call looks complicated, but simply sets up a case environment
+  % to process choices. Refer to the xkeyval documentation for details.
+  \XKV@cc*+[\val\index]{#1}{full,none,print}{%
+    \ifcase\index\relax
+    % full
+    \toggletrue{bool-bg}
+    \toggletrue{bool-footer-scroll}
+    \or
+    % none
+    \togglefalse{bool-bg}
+    \togglefalse{bool-footer-scroll}
+    \or
+    % print
+    \togglefalse{bool-bg}
+    \toggletrue{bool-footer-scroll}
+    \fi
+  }{%
+    \PackageWarning{pf}{\val\ is not a valid choice for bg and was ignored}
+  }
+}
+
+% Legacy bg option variants.
+\DeclareOptionX{bg-full}{%
+  \pf@deprecate{bg-full}{0.7}[Use bg=full instead.]
+  \toggletrue{bool-bg}
+  \toggletrue{bool-footer-scroll}
+}
+\DeclareOptionX{bg-none}{%
+  \pf@deprecate{bg-none}{0.7}[Use bg=none instead.]
+  \togglefalse{bool-bg}
+  \togglefalse{bool-footer-scroll}
+}
+\DeclareOptionX{bg-print}{%
+  \pf@deprecate{bg-print}{0.7}[Use bg=print instead.]
+  \togglefalse{bool-bg}
+  \toggletrue{bool-footer-scroll}
+}
+\DeclareOptionX{bg-a4}{\pf@deprecate{bg-a4}{0.7}[Remove call to this package option.]}
+\DeclareOptionX{bg-letter}{\pf@deprecate{bg-letter}{0.7}[Remove call to this package option.]}
+
+% Toggle justification (official books are flush left).
+\newtoggle{justified}
+\DeclareOptionX{justified}{\toggletrue{justified}}
+
+% Toggle multitoc.
+\newtoggle{multitoc}
+\settoggle{multitoc}{true}
+\DeclareOptionX{nomultitoc}{\togglefalse{multitoc}}
+
+% Default Settings
+\ExecuteOptionsX{bg=full}
+\ProcessOptionsX\relax
+
+
+% Load other modules of this package
+\RequirePackage{lib/book/pf-art}
+\RequirePackage{lib/book/pf-box}
+\RequirePackage{lib/book/pf-colors}
+\RequirePackage{lib/book/pf-fonts}     % font definitions
+\RequirePackage{lib/book/pf-header}    % fancy headers and footers
+\RequirePackage{lib/book/pf-list}
+\RequirePackage{lib/book/pf-monster}
+\RequirePackage{lib/book/pf-sections}
+\RequirePackage{lib/book/pf-spell}
+\RequirePackage{lib/book/pf-strings}   % Load document strings
+\RequirePackage{lib/book/pf-table}
+
+% Things I've added, will soon be mixed in with the above list
+\RequirePackage{lib/book/pf-actions}
+\RequirePackage{lib/book/pf-traits}
+\RequirePackage{lib/book/pf-rarity}
+
+% Set paragraph and line spacing
+%\linespread{1.1}%
+%\setlength{\parindent}{1em}
+%\setlength{\RaggedRightRightskip}{0pt plus 1cm}
+%\setlength{\RaggedRightParindent}{\parindent}
+%\hyphenpenalty=1000  % Fewer hyphens
+%
+%% Set left justification if not justified
+%\nottoggle{justified}{\RaggedRight}
+
+%
+% Style Parameters
+%
+
+% Disable space between paragraphs.
+\setlength{\parskip}{0pt}
+
+% Font environment
+\newenvironment{lmss}{%
+  \pf@deprecate{lmss}{0.7}
+  \fontfamily{lmss}\selectfont
+  }{}
+
+% Columns setup
+\setlength{\columnsep}{25pt}  % .35in
+
+% Customize itemize environment.
+\setlist{leftmargin=1em}
+\setitemize{noitemsep,topsep=0.5ex}
+\renewcommand{\labelitemi}{\raisebox{0.25ex}{\tiny{\( \bullet \)}}}
+
+
+
+\newcommand{\pfhline}{
+  \noindent
+  % \begin{tikzpicture}[]
+  %   \draw (0, 0) -- (0,0) -- (\textwidth, 0.05);
+  % \end{tikzpicture}%
+  \leaders\hbox{\rule[0.5em]{1pt}{3pt}}\hfill%
+  \par%
+}
+
+
+% Either hilariously, or infuriatingly, the \ifcommandkey
+% implementation is buggy. Here is a re-implementation
+% from tex.stackexchange.
+\begingroup
+\makeatletter
+\catcode`\/=8 %
+\@firstofone
+{
+  \endgroup
+  \renewcommand{\ifcommandkey}[1]{%
+    \csname @\expandafter \expandafter \expandafter
+    \expandafter \expandafter \expandafter  \expandafter
+    \kcmd@nbk \commandkey {#1}//{first}{second}//oftwo\endcsname
+  }
+}

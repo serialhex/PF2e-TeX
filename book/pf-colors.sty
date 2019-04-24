@@ -1,0 +1,63 @@
+\RequirePackage{color}
+
+% Define colors, sampled from the books.
+\definecolor{bgtan}{HTML}{F7F2E5}		% e.g. used for background and quotebox
+\definecolor{pagegold}{HTML}{B89A67}  % pagenumbers and footer
+
+\definecolor{title1}{HTML}{58180D}	% e.g. used for titles
+\definecolor{title2}{HTML}{0d2b58}	% e.g. used for titles
+\definecolor{title3}{HTML}{58390d}	% e.g. used for titles
+\definecolor{rulered}{HTML}{9C2B1B}		%e.g. used for triangular rule in statsblock
+
+\definecolor{creatheader}{HTML}{500000}	% e.g. used for creature header
+\definecolor{creature}{HTML}{3b4f54}	% e.g. used for creature titles, tags, etc
+
+% Tag Boxes
+\definecolor{tagborder}{HTML}{3b4f54}
+\definecolor{tagbg}{HTML}{f5f3e7}
+
+% defines the colors for the commonality of creatures
+\definecolor{common}{HTML}{000000}
+\definecolor{uncommon}{HTML}{8b1c1b}
+\definecolor{rare}{HTML}{f15a22}
+\definecolor{unique}{HTML}{25408f}
+
+\definecolor{undergold}{HTML}{C9AD6A}	% e.g. used for titlerules
+\definecolor{uppergold}{HTML}{B89A67}	%e.g. used for pagenumbers and footer
+\definecolor{puregold}{HTML}{E69A28}	%e.g. used for top line in newer monsterbox
+
+\definecolor{monstertandark}{HTML}{F0DBB5}	%e.g. used for older monsterbox
+
+\definecolor{commentred}{HTML}{E5C1C1} % e.g. used in item tables instead of the green
+\definecolor{commentblue}{HTML}{D2E9F8}	% e.g. used in table
+\definecolor{commentgreen}{HTML}{E0E5C1} % PHB Part 1
+
+\definecolor{lightgrey}{HTML}{C5C5C5}	%e.g. used for text in pfsmallbox
+\definecolor{colorTODO}{HTML}{FF0000}	%e.g. used for TODO
+\definecolor{colorGlossary}{HTML}{a25299}	%e.g. used for key words
+\definecolor{colorCharacter}{HTML}{247bad}	%e.g. used for character names
+\definecolor{statblockribbon}{HTML}{E69A28} % stat block top/bottom borders (gold)
+\definecolor{statblockbg}{HTML}{FDF1DC}     % stat block background (tan)
+
+% Trim (affects tables and paperboxes)
+
+
+% The color used in \setthemecolor when a new color is not set
+\colorlet{themecolor}{commentgreen}    % Set the default theme to Part 1 of the PHB.
+
+% Element colors that change when \setthemecolor is used
+\colorlet{commentboxcolor}{themecolor}  % commentbox background
+\colorlet{paperboxcolor}{themecolor}    % paperbox background
+\colorlet{tablecolor}{themecolor}       % table even row background
+
+% Element colors that do not respond to \setthemecolor
+\colorlet{quoteboxcolor}{bgtan}             % quotebox background
+
+% Sets the themecolor and colors for all themed elements
+% If called without the optional color, resets the color of all themed elements to the current themecolor
+\newcommand{\setthemecolor}[1][themecolor]{%
+  \colorlet{themecolor}{#1}
+  \colorlet{commentboxcolor}{#1}
+  \colorlet{paperboxcolor}{#1}
+  \colorlet{tablecolor}{#1}
+}

@@ -1,0 +1,34 @@
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+
+% \setlength{\wrapoverhang}{\marginparwidth}
+% \addtolength{\wrapoverhang}{\marginparsep}
+
+\newcommand{\traits}[1]{%
+  \setlength\intextsep{0pt}%
+  \begin{wrapfigure}{l}[2mm]{1.5cm}%
+    \centering
+    \begin{tcolorbox}[width=1.778cm,
+                    %  enlarge top initially by=-5mm
+                     colframe=tagborder,
+                     colback=tagbg,
+                     arc=1mm,
+                     box align=center,
+                     halign=flush center,
+                     left*=0mm,
+                     right*=0mm,
+                     nobeforeafter,
+                    %  beforeafter skip=0pt
+                    %  box align=top,
+                    %  top=1mm,
+                    %  bottom=1mm,
+                    %  noparskip
+                    %  left skip=-1mm,
+                    %  right skip=5mm,
+                    %  before skip=3mm,
+                    %  after skip=-3mm
+                    ]%
+      #1
+    \end{tcolorbox}%
+  \end{wrapfigure}%
+}

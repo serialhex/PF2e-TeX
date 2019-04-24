@@ -1,0 +1,48 @@
+% Define all strings as new macros instead of hardcoding them in the
+% TeX files. This then allows us to add captions for multilanguage support.
+
+% Monster/PC Stuff, in order of use in MM
+\newcommand\perceptionname{Perception}
+\newcommand\languagesname{Languages}
+\newcommand\skillsname{Skills}
+
+\newcommand\strstatname{Str}
+\newcommand\dexstatname{Dex}
+\newcommand\constatname{Con}
+\newcommand\intstatname{Int}
+\newcommand\wisstatname{Wis}
+\newcommand\chastatname{Cha}
+
+\newcommand\itemsname{Items}
+\newcommand\interactname{Interaction Abilities}
+
+\newcommand\acname{AC}
+\newcommand\tacname{TAC}
+\newcommand\hpname{HP}
+\newcommand\speedname{Speed}
+
+\newcommand\fortitudename{Fort}
+\newcommand\reflexname{Ref}
+\newcommand\willname{Will}
+
+\newcommand\immname{Immunities}
+\newcommand\resistname{Resistances}
+\newcommand\weakname{Weaknesses}
+\newcommand\auraname{Constant Auras}
+
+% Misc Stuff
+\newcommand\pf@commentboxname{Note}
+\newcommand\pf@warnboxname{Warning}
+\newcommand\pf@suggestionboxname{Suggestion}
+\newcommand\pf@exampleboxname{Example}
+
+
+
+% Check if either babel or polyglossia have been loaded,
+% in which case load the string captions
+\@ifpackageloaded{babel}{
+  \usepackage{lib/book/pf-strings-captions}
+}{}
+\@ifpackageloaded{polyglossia}{
+  \usepackage{lib/book/pf-strings-captions}
+}{}

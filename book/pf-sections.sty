@@ -1,0 +1,134 @@
+\RequirePackage[titles]{tocloft}
+\RequirePackage[newparttoc]{titlesec}	% Used to adjust (sub)section formatting
+\RequirePackage{amssymb}
+\RequirePackage{everypage}
+
+\iftoggle{multitoc}{%
+  \RequirePackage[toc]{multitoc}
+}{}
+
+% cover
+\newkeycommand\pfMakeCover[
+    image=,
+    logo=,
+    title=Title,
+    subtitle=subtitle,
+    ]{
+    \onecolumn
+    \thispagestyle{empty}
+    \AddThispageHook{
+        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+    }
+    \begin{center}
+        \vspace*{-15mm}\includegraphics[width=3cm]{\commandkey{logo}}\\*\vspace*{15mm}
+        \nodesto%
+        \fontsize{48pt}{48pt}
+        \selectfont
+        \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*
+        \normalfont\normalsize\includegraphics[width=.5\paperwidth]{lib/book/img/separator}
+        \LARGE\vfill
+        \fontsize{18pt}{18pt}
+        \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
+    \end{center}
+    \clearpage
+    \twocolumn%
+}
+
+%\newcommand*{\hbPartCover}{lib/book/img/part-cover}
+%\newcommand*{\hbPartSubcover}{lib/book/img/part-cover2}
+%
+%\renewcommand*{\beforepartskip}{\null\vspace*{-55pt}\hspace*{-10pt}}
+%\renewcommand*{\afterpartskip}{\clearpage\hbFullPageArtHook{\hbPartSubcover}}
+%\renewcommand*{\printpartname}{\AddThispageHook{%
+%    \thispagestyle{part}%
+%    \begin{tb*}{\paperwidth}{0pt}{0pt}%
+%      \includegraphics[width=\paperwidth,height=\paperheight]{\hbPartCover}
+%    \end{tb*}%
+%    \begin{tb*}{\paperwidth}{0pt}{0pt}%
+%      \includegraphics[width=\paperwidth]{lib/book/img/header-part-circ}
+%    \end{tb*}%
+%    \begin{tb*}{.5\paperwidth}{0pt}{0pt}%
+%      \includegraphics[width=.5\paperwidth]{lib/book/img/header-part}
+%    \end{tb*}%
+%    \begin{tb*}{.5\paperwidth}{.5\paperwidth}{0pt}
+%      \reflectbox{\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}}
+%    \end{tb*}%
+%  }%
+%  \hspace*{-8pt}\nodesto\fontsize{64pt}{64pt}\selectfont\color{chapter}PART%
+%}
+
+% Adjust section and subsection colors and font (change 0em to 1em if you commented the removal of section numbering)
+%\titleformat{} % cmd
+%[] % shape : hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+%{} % format
+%{} % label
+%{} % sep
+%{} % before code
+%[] % after code
+
+% \titlespacing*{〈command〉}{〈left〉}{〈before-sep〉}{〈after-sep〉}[〈right-sep〉]
+
+
+%%%%%%%%%%%%%% \part
+
+\titleformat{\part}
+[display]
+{\thispagestyle{part}\nodesto\fontsize{50pt}{50pt}\selectfont\color{title1}\filcenter}
+{\partname \thepart}
+{-15pt}
+{\Large}
+
+\titlespacing*{\part}{0pt}{-54pt}{0pt}
+
+%%%%%%%%%%%%%% \chapter
+
+\titleformat{\chapter}
+[display]
+{\thispagestyle{chapter}\vspace{-60pt}\color{title1}\pf@TitleFont}
+{\flushright \normalsize \color{title1} \MakeUppercase{\chaptertitlename}{\fontsize{60}{60}\selectfont \color{title1}\thechapter}}
+{0em}
+{\Huge}
+[{\titleline{\color{undergold}\titlerule[2pt]}}]
+
+%%%%%%%%%%%%%% \section
+
+\titleformat{\section}%[block]
+{\color{title1}\pf@TitleFont\huge}{\thesection}{0.5em}{}
+[{\titleline{\color{undergold}\titlerule[0.5pt]}}]
+
+%%%%%%%%%%%%%% \subsection
+
+
+\titleformat{\subsection}%[block]
+{\color{title2}\pf@TitleFont\LARGE}{\thesubsection}{0.5em}{$\bigstar$ }
+[{\titleline{\color{title2}\titlerule[0.5pt]}}]
+
+%%%%%%%%%%%%%% \subsubsection
+
+\titleformat{\subsubsection}
+{\color{title3}\pf@TitleFont\Large}{\thesubsubsection}{0em}{$\blacktriangleright$ }[]
+
+%%%%%%%%%%%%%% \paragraph
+
+\titleformat{\paragraph}
+{\color{title3}\pf@TitleFont\normalsize\large}{\theparagraph}{0em}{}
+
+%%%%%%%%%%%%%% \subparagraph
+
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\bfseries\slshape}
+{\thesubparagraph\quad}
+{0pt}
+{}
+[.]
+
+\titlespacing*{\subparagraph}{\parindent}{\parskip}{\wordsep}
+
+%%%%%%%%%%%%%% \subtitle
+
+% Special command for magic items, traps, and the like.
+\newcommand{\subtitlesection}[2]{
+    \subsubsection{#1}\vspace{-1ex}
+    \textit{#2}\vspace{1ex}\par
+}
+

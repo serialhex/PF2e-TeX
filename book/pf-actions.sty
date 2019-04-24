@@ -1,0 +1,44 @@
+\usepackage{graphicx}
+
+%
+% Actions, Reactions, and things like that
+%
+
+% Black magic from StackOverflow
+\newcommand*\img[1]{%
+  \raisebox{-0.2\baselineskip}{%
+      \includegraphics[
+        height=\baselineskip,
+        keepaspectratio,
+      ]{#1}%
+  }
+}
+
+%
+% Actions & Activities
+%
+
+\newenvironment{pf-action}[1]{%
+  \img{lib/book/img/Action}\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}
+
+\newenvironment{pf-activity2}[1]{%
+  \img{lib/book/img/Activity2}\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}
+
+\newenvironment{pf-activity3}[1]{%
+  \img{lib/book/img/Activity3}\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}
+
+\newenvironment{pf-freeaction}[1]{%
+  \img{lib/book/img/FreeAction}\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}
+
+\newenvironment{pf-reaction}[1]{%
+  \img{lib/book/img/Reaction}\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}

@@ -1,0 +1,30 @@
+\RequirePackage{graphicx}
+\RequirePackage{dblfloatfix}
+\RequirePackage[strict]{changepage}
+
+
+\newlength{\pfhmargin}
+\newcommand*{\pfart}[2]{%
+    \checkoddpage
+    \ifoddpage
+        \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\oddsidemargin+4pt \relax}
+    \else
+        \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\evensidemargin+4pt \relax}
+
+    \fi
+    \begin{figure*}[#1!]
+        \centering
+        \if #1t
+            \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep \relax}
+        \fi
+
+         \makebox[\paperwidth+1pt][l]{
+            \hskip-\pfhmargin \relax
+            \includegraphics[width=\paperwidth+1pt]{#2}
+        }
+        \if #1b
+            \vspace*{-\dimexpr\paperheight-\textheight-1in+13pt-\voffset-\topmargin-\headheight-\headsep\relax}
+        \fi
+
+    \end{figure*}
+}
