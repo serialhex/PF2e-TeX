@@ -2,8 +2,9 @@
 \RequirePackage[T1]{fontenc}
 \usepackage{fontspec}
 
-\renewcommand{\sfdefault}{lmss}
-% \renewcommand{\rmdefault}{lmr}
+% \renewcommand{\sfdefault}{lmss}
+% \renewcommand{\rmdefault}{\manuale}
+% \setmainfont{Cambria}
 
 \newcommand{\pf@TitleFont}{\normalfont\scshape\Huge}
 
@@ -35,23 +36,32 @@
   BoldFont = *-bold
 ]{Junction}
 
-% Unused Fonts, will probably get rid of them
-\newfontfamily\nodesto[
-  Path = lib/book/fonts/,
-  Extension = .otf,
-  UprightFont = *,
-  BoldFont = *Bold,
-  ItalicFont = *Italic,
-  BoldItalicFont = *BoldItalic,
-]{NodestoCapsCondensed}
-
 \newfontfamily\prociono[
   Path = lib/book/fonts/,
   Extension = .otf,
   UprightFont = *
 ]{Prociono}
 
+% Default Serif font
+% \newfontfamily\manuale[
+%   Path = lib/book/fonts/,
+%   Extension = .ttf,
+%   UprightFont = *-Regular,
+%   BoldFont = *-Bold,
+%   ItalicFont = *-Italic,
+%   BoldItalicFont = *-BoldItalic,
+% ]{Manuale}
 
+\setmainfont{Manuale}[
+  Path = lib/book/fonts/,
+  Extension = .ttf,
+  UprightFont = *-Medium,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+]
+
+% Unused Fonts, will probably get rid of them
 \newfontfamily\gothiccond[
   Path = lib/book/fonts/,
   Extension = .otf,
@@ -65,8 +75,6 @@
   UprightFont = *,
   ItalicFont = *-Italic
 ]{LindenHill}
-
-\setmainfont{Cambria}
 
 % StrokeColor, FillColor, StrokeWidth, Text
 \newcommand*{\fillstroke}[4]{%

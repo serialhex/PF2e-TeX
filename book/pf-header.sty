@@ -25,7 +25,7 @@
 
 \fancyfoot[LE]{
     \begin{tikzpicture}[remember picture,overlay]
-        \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
+        % \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
         \node[xshift=20pt,yshift=30pt] at (current page.south west) {\pf@PageNumberFont\textcolor{pagegold}{\thepage}};
         \node[anchor=south west,xshift=\marginparwidth+\marginparpush,yshift=27pt] at (current page.south west) {\pf@FooterFont{\textcolor{pagegold}{\nouppercase\leftmark}}};
     \end{tikzpicture}
@@ -33,7 +33,7 @@
 
 \fancyfoot[RO]{
     \begin{tikzpicture}[remember picture,overlay]
-        \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
+        % \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
         \node[xshift=-20pt,yshift=30pt] at (current page.south east) {\pf@PageNumberFont\textcolor{pagegold}{\thepage}};
         \node[anchor=south east,xshift=-\marginparwidth-\marginparpush,yshift=27pt] at (current page.south east) {\pf@FooterFont{\textcolor{pagegold}{\nouppercase\leftmark}}};
     \end{tikzpicture}
@@ -46,10 +46,10 @@
     \fancyhf{} % clear all headers and footers
     \fancyhead{
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/book/img/part-cover}};
-            \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{lib/book/img/header-part-circ}};
-            \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
-            \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
+            % \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/book/img/part-cover}};
+            % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{lib/book/img/header-part-circ}};
+            % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
+            % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
         \end{tikzpicture}
     }
 }
@@ -59,8 +59,8 @@
     \fancyhead{
         \begin{tikzpicture}[remember picture,overlay]
             \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/book/img/background}};
-            \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
-            \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
+            % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
+            % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
         \end{tikzpicture}
     }
 }
