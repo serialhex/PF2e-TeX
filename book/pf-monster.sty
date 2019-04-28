@@ -5,6 +5,7 @@
 \usepackage{graphicx,calc}
 \usepackage{ragged2e}
 \usepackage{changepage}
+\usepackage{setspace}
 
 % Macro to print stats with autocomputed modifier
 % e.g. \stat{12} prints "12 (+1)"
@@ -139,6 +140,7 @@
     aura=,
     ]{%
 \begingroup
+\onehalfspacing
 \hrulefill
 \par
 \traits{\commandkey{traits}}
@@ -180,30 +182,4 @@
 
 \hrulefill
 \endgroup
-}
-
-\newkeycommand\stats[
-  ac=10,
-  tac=10,
-  fort=0,
-  ref=0,
-  will=0,
-  hp=1,
-  immune=,
-  resist=,
-  weak=,
-  aura=,
-  ]{%
-  % \begin{pf@monsterattrs}
-    \pf@monsterattr{ac}{\acname}
-    \pf@monsterattr{tac}{\tacname}
-    \pf@monsterattr{fort}{\fortitudename}
-    \pf@monsterattr{ref}{\reflexname}
-    \pf@monsterattr{will}{\willname}
-    \pf@monsterattr{hp}{\hpname}
-    \pf@ifmonsterattr{immune}{\immname}
-    \pf@ifmonsterattr{resist}{\resistname}
-    \pf@ifmonsterattr{weak}{\weakname}
-    \pf@ifmonsterattr{aura}{\auraname}
-  % \end{pf@monsterattrs}%
 }
