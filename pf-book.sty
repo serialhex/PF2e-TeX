@@ -14,6 +14,9 @@
   % scale=0.90,
 ]{geometry}
 
+% stop hyphenation
+\usepackage[none]{hyphenat}
+
 % Loaded before tikz to avoid package option conflict with pgf.
 \RequirePackage[table]{xcolor}
 
@@ -119,10 +122,12 @@
 \RequirePackage{lib/book/pf-actions}
 \RequirePackage{lib/book/pf-traits}
 \RequirePackage{lib/book/pf-rarity}
+\RequirePackage{lib/book/pf-character}
 
 % Set paragraph and line spacing
 %\linespread{1.1}%
 %\setlength{\parindent}{1em}
+\setlength{\parindent}{15pt}
 %\setlength{\RaggedRightRightskip}{0pt plus 1cm}
 %\setlength{\RaggedRightParindent}{\parindent}
 %\hyphenpenalty=1000  % Fewer hyphens
