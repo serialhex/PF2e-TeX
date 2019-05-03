@@ -66,7 +66,7 @@
 %{} % before code
 %[] % after code
 
-% \titlespacing*{〈command〉}{〈left〉}{〈before-sep〉}{〈after-sep〉}[〈right-sep〉]
+% \titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}[<right-sep>]
 
 
 %%%%%%%%%%%%%% \part
@@ -93,20 +93,20 @@
 %%%%%%%%%%%%%% \section
 
 \titleformat{\section}%[block]
-{\color{title1}\pf@TitleFont\huge}{\thesection}{0.5em}{}
+{\color{title1}\pf@TitleFont\LARGE}{\thesection}{0.5em}{}
 [{\titleline{\color{undergold}\titlerule[0.5pt]}}]
 
 %%%%%%%%%%%%%% \subsection
 
 
 \titleformat{\subsection}%[block]
-{\color{title2}\pf@TitleFont\LARGE}{\thesubsection}{0.5em}{$\bigstar$ }
+{\color{title2}\pf@TitleFont\Large}{\thesubsection}{0.5em}{}
 [{\titleline{\color{title2}\titlerule[0.5pt]}}]
 
 %%%%%%%%%%%%%% \subsubsection
 
 \titleformat{\subsubsection}
-{\color{title3}\pf@TitleFont\Large}{\thesubsubsection}{0em}{$\blacktriangleright$ }[]
+{\color{title3}\pf@TitleFont\large}{\thesubsubsection}{0em}{}[]
 
 %%%%%%%%%%%%%% \paragraph
 
