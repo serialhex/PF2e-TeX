@@ -1,6 +1,20 @@
 % Rarity stuff goes here
+\usepackage{tcolorbox}
 
-\newcommand{\common}[1]{Common}
+\newcommand{\pf@rarityBox}[1]{%
+  \begin{tcolorbox}[width=0.15in,
+                    height=0.16in,
+                    left skip=0,
+                    right skip=0,
+                    colback=common,
+                    ]%
+  #1%
+  \end{tcolorbox}
+}
+
+\newcommand{\common}[1]{%
+  {Common \pf@rarityBox{#1}}
+}
 
 \newcommand{\uncommon}[1]{Uncommon}
 

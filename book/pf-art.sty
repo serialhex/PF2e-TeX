@@ -4,27 +4,45 @@
 
 
 \newlength{\pfhmargin}
-\newcommand*{\pfart}[2]{%
-    \checkoddpage
-    \ifoddpage
-        \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\oddsidemargin+4pt \relax}
-    \else
-        \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\evensidemargin+4pt \relax}
+\newcommand*{\pfBigArt}[2]{%
+  \checkoddpage
+  \ifoddpage
+    \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\oddsidemargin+4pt \relax}
+  \else
+    \setlength{\pfhmargin}{\dimexpr 1in+\hoffset+\evensidemargin+4pt \relax}
 
+  \fi
+  \begin{figure*}[#1!]
+    \centering
+    \if #1t
+      \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep \relax}
     \fi
-    \begin{figure*}[#1!]
-        \centering
-        \if #1t
-            \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep \relax}
-        \fi
 
-         \makebox[\paperwidth+1pt][l]{
-            \hskip-\pfhmargin \relax
-            \includegraphics[width=\paperwidth+1pt]{#2}
-        }
-        \if #1b
-            \vspace*{-\dimexpr\paperheight-\textheight-1in+13pt-\voffset-\topmargin-\headheight-\headsep\relax}
-        \fi
+     \makebox[\paperwidth+1pt][l]{
+      \hskip-\pfhmargin \relax
+      \includegraphics[width=\paperwidth+1pt]{#2}
+    }
+    \if #1b
+      \vspace*{-\dimexpr\paperheight-\textheight-1in+13pt-\voffset-\topmargin-\headheight-\headsep\relax}
+    \fi
 
-    \end{figure*}
+  \end{figure*}
+}
+
+\newcommand{\pfArt}[1]{%
+  \begin{figure}[h]%
+    \centering%
+    \includegraphics[width=0.8\linewidth]{#1}%
+  \end{figure}%
+}
+
+% There is also an \includesvg command from the svg package...
+% Black magic from StackOverflow
+\newcommand*\pfInlineArt[1]{%
+  \raisebox{-0.2\baselineskip}{%
+      \includegraphics[
+        height=\baselineskip,
+        keepaspectratio,
+      ]{#1}%
+  }
 }

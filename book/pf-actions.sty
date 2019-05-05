@@ -4,22 +4,11 @@
 % Actions, Reactions, and things like that
 %
 
-% There is also an \includesvg command from the svg package...
-% Black magic from StackOverflow
-\newcommand*\img[1]{%
-  \raisebox{-0.2\baselineskip}{%
-      \includegraphics[
-        height=\baselineskip,
-        keepaspectratio,
-      ]{#1}%
-  }
-}
-
-\newcommand{\actionIcon}{\img{lib/book/img/Action}}
-\newcommand{\activityTwoIcon}{\img{lib/book/img/Activity2}}
-\newcommand{\activityThreeIcon}{\img{lib/book/img/Activity3}}
-\newcommand{\freeActionIcon}{\img{lib/book/img/FreeAction}}
-\newcommand{\reactionIcon}{\img{lib/book/img/Reaction}}
+\newcommand{\actionIcon}{\pfInlineArt{lib/book/img/Action}}
+\newcommand{\activityTwoIcon}{\pfInlineArt{lib/book/img/Activity2}}
+\newcommand{\activityThreeIcon}{\pfInlineArt{lib/book/img/Activity3}}
+\newcommand{\freeActionIcon}{\pfInlineArt{lib/book/img/FreeAction}}
+\newcommand{\reactionIcon}{\pfInlineArt{lib/book/img/Reaction}}
 %
 % Actions & Activities
 %

@@ -1,118 +1,118 @@
 % Generic Box
 \newtcolorbox{pf-box}[2][]{
-	boxrule=1pt,
-	toptitle=2mm,
-	bottomtitle=2mm,
-	left=8pt,
-	right=8pt,
-	arc=0mm,
-	fonttitle=\pf@BoxTitleFont,
-	fontupper=\pf@BoxBodyFont,
-    title=#1,
-    colback={#2!75!white},
-    colframe={#2!75!black},
-	colbacktitle=#2,
-    opacityback=0.5
+  boxrule=1pt,
+  toptitle=2mm,
+  bottomtitle=2mm,
+  left=8pt,
+  right=8pt,
+  arc=0mm,
+  fonttitle=\pf@BoxTitleFont,
+  fontupper=\pf@BoxBodyFont,
+  title=#1,
+  colback={#2!75!white},
+  colframe={#2!75!black},
+  colbacktitle=#2,
+  opacityback=0.5
 }
 
 % Green comment box definition
 \newenvironment{pf-commentbox}{
-    \begin{pf-box}[\pf@commentboxname]{commentgreen}
+  \begin{pf-box}[\pf@commentboxname]{commentgreen}
 }{
-    \end{pf-box}
+  \end{pf-box}
 }
 
 \newenvironment{pf-warnbox}{
-    \begin{pf-box}[\pf@warnboxname]{commentred}
+  \begin{pf-box}[\pf@warnboxname]{commentred}
 }{
-    \end{pf-box}
+  \end{pf-box}
 }
 
 %Quelques conseils if #1 is none
 \newenvironment{pf-suggestionbox}{
-    \begin{pf-box}[\pf@suggestionboxname]{commentblue}
+  \begin{pf-box}[\pf@suggestionboxname]{commentblue}
 }{
-    \end{pf-box}
+  \end{pf-box}
 }
 
 \newtcolorbox{pf-titlebox}[2][]{
-    title=#2,
-    left=1mm,
-	right=1mm,
-    enhanced,
-    attach boxed title to top center={yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
-    boxed title style={
-        boxrule=0.5mm,
-        frame code={
-            \path[tcb fill frame] ([xshift=-4mm]frame.west)
-            -- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
-            -- (frame.south east) -- (frame.south west) -- cycle;
-        },
-        interior code={
-            \path[tcb fill interior] ([xshift=-2mm]interior.west)
-            -- (interior.north west) -- (interior.north east)
-            -- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
-            -- cycle;
-        }
+  title=#2,
+  left=1mm,
+  right=1mm,
+  enhanced,
+  attach boxed title to top center={yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
+  boxed title style={
+    boxrule=0.5mm,
+    frame code={
+      \path[tcb fill frame] ([xshift=-4mm]frame.west)
+      -- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+      -- (frame.south east) -- (frame.south west) -- cycle;
     },
-    #1
+    interior code={
+      \path[tcb fill interior] ([xshift=-2mm]interior.west)
+      -- (interior.north west) -- (interior.north east)
+      -- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
+      -- cycle;
+    }
+  },
+  #1
 }
 
 \newtcolorbox{pf-examplebox}{
-	enhanced,
-	before skip=11pt plus 1pt,
-	toptitle=3mm,
-	boxsep=0.25ex,
-	left=8pt,
-	right=8pt,
-	fonttitle=\pf@BoxTitleFont,
-	fontupper=\pf@BoxBodyFont,
-	title=\pf@exampleboxname,
-	arc=0mm,
-	borderline north={1pt}{-0.5pt}{black},
-	borderline south={1pt}{-0.5pt}{black},
-	colback=monstertandark,
-	colframe=monstertandark,
-	colbacktitle=monstertandark,
-	fuzzy shadow={0mm}{-3.5pt}{-0.5pt}{0.4mm}{black!60!white},
-	overlay={
-		\fill [fill=black] (frame.south west) -- ++(7pt,0) -- ++(0,-5pt) -- cycle;
-		\fill [fill=black] (frame.north west) -- ++(7pt,0) -- ++(0,5pt) -- cycle;
-		\fill [fill=black] (frame.north east) -- ++(-7pt,0) -- ++(0,5pt) -- cycle;
-		\fill [fill=black] (frame.south east) -- ++(-7pt,0) -- ++(0,-5pt) -- cycle;
-		},
-	after={\vspace{10pt plus 1pt}\noindent}
+  enhanced,
+  before skip=11pt plus 1pt,
+  toptitle=3mm,
+  boxsep=0.25ex,
+  left=8pt,
+  right=8pt,
+  fonttitle=\pf@BoxTitleFont,
+  fontupper=\pf@BoxBodyFont,
+  title=\pf@exampleboxname,
+  arc=0mm,
+  borderline north={1pt}{-0.5pt}{black},
+  borderline south={1pt}{-0.5pt}{black},
+  colback=monstertandark,
+  colframe=monstertandark,
+  colbacktitle=monstertandark,
+  fuzzy shadow={0mm}{-3.5pt}{-0.5pt}{0.4mm}{black!60!white},
+  overlay={
+    \fill [fill=black] (frame.south west) -- ++(7pt,0) -- ++(0,-5pt) -- cycle;
+    \fill [fill=black] (frame.north west) -- ++(7pt,0) -- ++(0,5pt) -- cycle;
+    \fill [fill=black] (frame.north east) -- ++(-7pt,0) -- ++(0,5pt) -- cycle;
+    \fill [fill=black] (frame.south east) -- ++(-7pt,0) -- ++(0,-5pt) -- cycle;
+    },
+  after={\vspace{10pt plus 1pt}\noindent}
 }
 
 \newcommand{\pfsmall}[1][]{
-    \color{lightgrey}{\footnotesize{#1}}}
+  \color{lightgrey}{\footnotesize{#1}}}
 
 \newcommand{\pfsmallbox}[1][]{
-    \tcbox[nobeforeafter,box align=base,size=fbox,height=0.6cm]{
-        \ifthenelse{\isempty{#1}}{\hspace{0.5cm}}%empty
-        {\pfsmall{#1}}% not empty
-    }
+  \tcbox[nobeforeafter,box align=base,size=fbox,height=0.6cm]{
+    \ifthenelse{\isempty{#1}}{\hspace{0.5cm}}%empty
+    {\pfsmall{#1}}% not empty
+  }
 }
 
 \newtcolorbox{pf-quotebox}{enhanced jigsaw,frame hidden,boxrule=0pt,
-	enhanced,
-	toptitle=3mm,
-	boxsep=0.25ex,
-	left=8pt,
-	right=8pt,
-	colback=bgtan,
-	colframe=bgtan,
-	colbacktitle=bgtan,
-	arc=0mm,
-	fonttitle=\pf@BoxTitleFont,
-	borderline west={1pt}{-0.5pt}{title1},
-	borderline east={1pt}{-0.5pt}{title1},
-	fontupper=\pf@BoxBodyFont,
-	%title=#2,
-	overlay={
-		\foreach \n in {north east,north west,south east,south west}
-		{\draw [title1, fill=title1] (frame.\n) circle (2pt); }; },
-	after={\vspace{5pt plus 1pt}\noindent}
+  enhanced,
+  toptitle=3mm,
+  boxsep=0.25ex,
+  left=8pt,
+  right=8pt,
+  colback=bgtan,
+  colframe=bgtan,
+  colbacktitle=bgtan,
+  arc=0mm,
+  fonttitle=\pf@BoxTitleFont,
+  borderline west={1pt}{-0.5pt}{title1},
+  borderline east={1pt}{-0.5pt}{title1},
+  fontupper=\pf@BoxBodyFont,
+  %title=#2,
+  overlay={
+    \foreach \n in {north east,north west,south east,south west}
+    {\draw [title1, fill=title1] (frame.\n) circle (2pt); }; },
+  after={\vspace{5pt plus 1pt}\noindent}
 }
 
 %\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
@@ -121,13 +121,13 @@
 %}
 
 \newcommand{\pfquote}[2]{
-    \begin{quotation}
-        \par
-        \textit{#1}
-    \end{quotation}
-    \begin{flushright}
-        \textit{\small{#2}}
-    \end{flushright}
+  \begin{quotation}
+    \par
+    \textit{#1}
+  \end{quotation}
+  \begin{flushright}
+    \textit{\small{#2}}
+  \end{flushright}
 }
 
 
