@@ -1,15 +1,22 @@
 %\RequirePackage{longtable}
 % \RequirePackage{supertabular}
 % \usepackage{tabu} %% this is broken, don't use until it is fixed
-\usepackage[table]{xcolor}
 % \usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{caption}
 
 % Table Header
-\newcommand{\header}[1]{{
-    \par\vspace*{8pt}
-    \noindent
-    \pf@TableTitleFont
-    #1}}
+\newcommand{\tableheader}[1]{{
+  \par\vspace*{8pt}
+  \noindent
+  \pf@TableTitleFont
+  #1}}
+
+\newcommand{\header}[1]{%
+  \textbf{\cellcolor{tabletitle}\color{white}{#1}}%
+}
 
 % Centered Column
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
@@ -56,38 +63,39 @@
 
 \newenvironment{pf-weapontable-tabu}{
     % \par\vspace*{8pt}
-    \noindent
+    % \noindent
 
-    \begin{table*}[t]
+    % \begin{table*}[t]
     \centering
     \fontfamily{lmss}\selectfont %Select font
     % \rowcolors{1}{lightgray}{} % Alternate colors
 
-    \tabu{l|c|c|c|c|c|X}
+    \tabu to \textwidth {l|c|c|c|c|c|X}
     \taburowcolors[2]2{green!30 .. yellow!40}
     \rowfont{\bfseries\large}\rowcolor{gray!25} Weapon  & Price & Damage & Bulk & Hands & Group & Weapon Traits \\
     \hline
 }
 {
     % \vspace{8pt plus 1pt}
-    \noindent
+    % \noindent
     \endtabu
-    \end{table*}
+    % \end{table*}
 }
 
-\newenvironment{pf-weapontable}{
-    \noindent
-    \begin{table*}[t]
-    \centering
-    \fontfamily{lmss}\selectfont %Select font
-    \rowcolors{1}{commentgreen}{bgtan} % Alternate colors
-    \tabular{l|c|c|c|c|c|l}
-    Weapon  & Price & Damage & Bulk & Hands & Group & Weapon Traits \\
-    \hline
+\newenvironment{pf-weapontable}[1]{
+  \table
+  \noindent
+
+  \pf@TableTitleFont
+  \caption{#1}
+
+  \pf@TableBodyFont
+  \rowcolors{1}{bgtan}{commentgreen} % Alternate colors
+
+  \tabularx{\textwidth}{l|c|c|c|c|c|X}
+  \header{Weapon} & \header{Price} & \header{Damage} & \header{Bulk} & \header{Hands} & \header{Group} & \header{Weapon Traits} \\
 }
 {
-    % \vspace{8pt plus 1pt}
-    \noindent
-    \endtabular
-    \end{table*}
+  \endtabularx
+  \endtable
 }
