@@ -82,11 +82,17 @@
     % \end{table*}
 }
 
+\DeclareCaptionFont{pf@CaptionFont}{\pf@StatBlockTitleFont}
+
 \newenvironment{pf-weapontable}[1]{
   \table
   \noindent
 
-  \pf@TableTitleFont
+  \captionsetup{margin=0pt,
+                justification=raggedright,
+                format=plain,
+                singlelinecheck=false,
+                font={pf@CaptionFont,color=tabletitle}}
   \caption{#1}
 
   \pf@TableBodyFont

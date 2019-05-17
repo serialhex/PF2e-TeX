@@ -8,45 +8,40 @@
 \usepackage{changepage}
 \usepackage{setspace}
 
-\newtcolorbox{pfBackground}[2][]{
-  enhanced,
-  frame hidden,
-  boxrule=0pt,
-  breakable,
-  boxsep=0pt,
-  toptitle=3mm,
-  left=0pt,
-  right=0pt,
+% One box to rule them all...
+\newtcolorbox{pf@charoption}[3][]{
   arc=0mm,
-  opacityback=0,
+  boxrule=0pt,
+  boxsep=0pt,
+  breakable,
   colframe=title1,
+  coltitle=creature,
+  enhanced,
   fonttitle=\pf@StatBlockTitleFont,
   fontupper=\pf@StatBlockBodyFont,
-  title={#2 \hfill Background},
-  coltitle=creature,
-  #1
+  frame hidden,
+  left=0pt,
+  parbox=false,
+  opacityback=0,
+  % look into overlay boxes to make them spiffy
+  right=0pt,
+  title={#2 \hfill #3},
+  toptitle=3mm,
+  {#1}
 }
 
-% \newcommand{\pfBackground}[2]{%
-%   % Using a cheap hack until I make my own
-%   \monsterboxnobg{#1}{Background}{#2}
-% }
+\newcommand{\pfBackground}[4]{%
+  \begin{pf@charoption}{#1}{Background}%
+  #2%
 
-\newtcolorbox{pfFeat}[3][]{
-  enhanced,
-  frame hidden,
-  boxrule=0pt,
-  breakable,
-  boxsep=0pt,
-  toptitle=3mm,
-  left=0pt,
-  right=0pt,
-  arc=0mm,
-  opacityback=0,
-  colframe=title1,
-  fonttitle=\pf@StatBlockTitleFont,
-  fontupper=\pf@StatBlockBodyFont,
-  title={#2 \hfill Feat #3},
-  coltitle=creature,
-  #1
+  Choose two ability boosts. One must be in {#3}, and one is a free ability boost.
+
+  #4
+  \end{pf@charoption}
+}
+
+\newcommand{\pfFeat}[3]{
+  \begin{pf@charoption}{#1}{Feat #2}%
+  #3%
+  \end{pf@charoption}
 }
