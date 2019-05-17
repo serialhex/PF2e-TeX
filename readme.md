@@ -8,6 +8,10 @@ A lot of this may break and not work initially.  I do want and appreciate pull r
 
 ## How to use
 
+### NOTE!!!
+
+**There was a specific way that I was using this library.  Basically as a submodule included into my other projects.  Unfortunately I have changed the build process like a dozen times since I initially wrote this intro, so that is out-of-date.  Once I have this in more than a pre-alpha stage I'll write a better into on how this can be used.  For now, you can use the following mostly not-good method.**
+
 How _**I**_ am using this, is as a submodule in projects that require it.  Here is how I lay things out:
 
 - tmpl.latex
@@ -36,4 +40,4 @@ The Pathfinder logo is - of course - Copyright Paizo.  The action images were ma
 
 The action images are in two formats: SVG and EPS.  The SVG is there for ease of editing, as that is the format InkScape likes to use.  The EPS files are output from InkScape because TeX doesn't understand SVG yet... -_-  I did my best to copy them from the 2nd Edition Rulebook, but there may be errors in size and rendering.
 
-The fonts are all from the [League of Moveable Type](https://github.com/theleagueof/) and are all under the Open Font License.  Readme's and License are in the `book/fonts` directory.  I don't believe I am using all of them right now, and I may change them for something else... we shall see...
+The fonts are from the [League of Moveable Type](https://github.com/theleagueof/) and from [Omnibus Type](http://omnibus-type.com/) and are all under the Open Font License.  Readme's and License are in the `book/fonts` directory.  I don't believe I am using all of them right now, and I may change them for something else... we shall see...
