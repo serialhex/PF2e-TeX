@@ -34,6 +34,23 @@
     \twocolumn%
 }
 
+% Logo Only Cover
+\newkeycommand\pfMakeLogoCover[
+    image=,
+    ]{
+    \onecolumn
+    \thispagestyle{empty}
+    \AddThispageHook{
+        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+    }
+    \begin{center}
+        % This is here so the cover actually shows up.
+        % Do not remove
+    \end{center}
+    \clearpage
+    \twocolumn%
+}
+
 %\newcommand*{\hbPartCover}{lib/book/img/part-cover}
 %\newcommand*{\hbPartSubcover}{lib/book/img/part-cover2}
 %
