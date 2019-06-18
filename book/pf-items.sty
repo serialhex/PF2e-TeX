@@ -1,0 +1,56 @@
+% Item Box
+\newtcolorbox{itemBox}[3][]{
+  enhanced,
+  frame hidden,
+  boxrule=0pt,
+  breakable,
+  boxsep=0pt,
+  toptitle=3mm,
+  left=0pt,
+  right=0pt,
+  arc=0mm,
+  opacityback=0,
+  colframe=title1,
+  fonttitle=\pf@StatBlockTitleFont,
+  fontupper=\pf@StatBlockBodyFont,
+  title={#2 \hfill #3},
+  coltitle=creature,
+  #1
+}
+
+% Helpful for defining attributes
+\newcommand{\pf@itemattr}[2]{%
+  \textbf{#2} \commandkey{#1}%
+}
+
+\newcommand{\pf@ifitemattr}[2]{%
+  \ifcommandkey{#1}{%
+    ; \textbf{#2} \commandkey{#1}%
+  }{}%
+}
+
+% Macros for use within the item environment
+\newkeycommand\itemBasics[
+    traits=,
+    price=,
+    method=,
+    bulk=L,
+    activation=,
+    onset=,
+    ]{%
+\begingroup
+\hrulefill
+\par
+\traits{\commandkey{traits}}
+
+\raggedright
+\noindent
+\onehalfspacing
+
+\pf@itemattr{price}{\pricetext}\\
+\pf@itemattr{method}{\methodtext}; \pf@itemattr{bulk}{\bulktext}\\
+\pf@itemattr{activation}{\activationtext}\pf@ifitemattr{onset}{; \onsettext}
+
+\hrulefill
+\endgroup
+}
