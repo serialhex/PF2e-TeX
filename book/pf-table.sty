@@ -11,7 +11,7 @@
 \newcommand{\tableheader}[1]{{
   \par\vspace*{8pt}
   \noindent
-  \pf@TableTitleFont
+  \pfTableTitleFont
   #1}}
 
 \newcommand{\header}[1]{%
@@ -25,7 +25,7 @@
 \newenvironment{pf-table}[1][lX]{
     \par\vspace*{8pt}
     \noindent
-    \pf@TableBodyFont
+    \pfTableBodyFont
     \rowcolors{1}{bgtan}{commentgreen} % Alternate colors
     \tabularx{\linewidth}{#1}
 }{
@@ -52,7 +52,7 @@
 % \newenvironment{pf-longtable}[1][lX]{
 %     \par\vspace*{8pt}
 %     \noindent
-%     \pf@TableBodyFont
+%     \pfTableBodyFont
 %     \rowcolors{1}{commentgreen}{bgtan} % Alternate colors
 %     \supertabular{#1}
 % }{
@@ -82,7 +82,7 @@
     % \end{table*}
 }
 
-\DeclareCaptionFont{pf@CaptionFont}{\pf@StatBlockTitleFont}
+\DeclareCaptionFont{pf@CaptionFont}{\pfStatBlockTitleFont}
 
 \newenvironment{pf-weapontable}[1]{
   \table
@@ -95,7 +95,7 @@
                 font={pf@CaptionFont,color=tabletitle}}
   \caption{#1}
 
-  \pf@TableBodyFont
+  \pfTableBodyFont
   \rowcolors{1}{bgtan}{commentgreen} % Alternate colors
 
   \tabularx{\textwidth}{l|c|c|c|c|c|X}

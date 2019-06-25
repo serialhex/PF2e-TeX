@@ -43,7 +43,21 @@
   \PackageWarning{pf}{#1 is deprecated and will be removed in version #2.\IfNoValueF{#3}{ #3}}
 }
 
-% \usepackage{lipsum}
+%
+% Generally used things
+%
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{multicol}
+
+% probably going to remove this eventually...
+\usepackage{longtable,booktabs}
+\usepackage{csquotes}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %
 % Options

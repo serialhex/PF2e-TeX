@@ -4,6 +4,7 @@
 % \setlength{\wrapoverhang}{\marginparwidth}
 % \addtolength{\wrapoverhang}{\marginparsep}
 
+% This is unused and will be removed, use \trait{} instead
 \newcommand{\traits}[1]{%
   \setlength\intextsep{0pt}%
   \begin{wrapfigure}{l}[2mm]{1.1cm}%
@@ -18,7 +19,23 @@
                       right*=0mm,
                       nobeforeafter,
                     ]%
-      \pf@TraitFont{} #1
+      \pfTraitFont{} #1
     \end{tcolorbox}%
   \end{wrapfigure}%
+}
+
+\newcommand{\trait}[1]{%
+  \setlength\intextsep{0pt}%
+  \begin{tcolorbox}[hbox,
+                    colframe=tagborder,
+                    colback=tagbg,
+                    arc=1mm,
+                    % box align=center,
+                    % halign=flush center,
+                    left*=2mm,
+                    right*=2mm,
+                    nobeforeafter,
+                  ]%
+    \pfTraitFont{} #1
+  \end{tcolorbox}%
 }
