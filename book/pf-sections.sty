@@ -9,46 +9,49 @@
 
 % cover
 \newkeycommand\pfMakeCover[
-    image=,
-    logo=lib/book/img/2E-Logo,
-    title=Title,
-    subtitle=subtitle,
-    ]{
-    \onecolumn
-    \thispagestyle{empty}
-    \AddThispageHook{
-        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
-    }
-    \begin{center}
-        \vspace*{-15mm}\includegraphics[width=5in]{\commandkey{logo}}\\*\vspace*{15mm}
-        \prociono%
-        \fontsize{48pt}{48pt}
-        \selectfont
-        \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*
-        \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{lib/book/img/separator}
-        \LARGE\vfill
-        \fontsize{18pt}{18pt}
-        \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
-    \end{center}
-    \clearpage
-    \twocolumn%
+  image=,
+  logo=lib/book/img/2E-Logo,
+  title=Title,
+  subtitle=subtitle,
+  ]{
+  \onecolumn
+  \thispagestyle{empty}
+  \AddThispageHook{
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+  }
+  \begin{center}
+    \vspace*{-15mm}\includegraphics[width=5in]{\commandkey{logo}}\\*\vspace*{15mm}
+    \prociono%
+    \fontsize{48pt}{48pt}
+    \selectfont
+    \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*
+    \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{lib/book/img/separator}
+    \LARGE\vfill
+    \fontsize{18pt}{18pt}
+    \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
+  \end{center}
+  \clearpage
+  \twocolumn%
 }
 
 % Logo Only Cover
 \newkeycommand\pfMakeLogoCover[
-    image=,
-    ]{
-    \onecolumn
-    \thispagestyle{empty}
-    \AddThispageHook{
-        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
-    }
-    \begin{center}
-        % This is here so the cover actually shows up.
-        % Do not remove
-    \end{center}
-    \clearpage
-    \twocolumn%
+  image=,
+  ]{
+  \pagenumbering{alph}
+  \onecolumn
+  \thispagestyle{empty}
+  \AddThispageHook{
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+  }
+  \begin{center}
+    % This is here so the cover actually shows up.
+    % Do not remove
+  \end{center}
+  \clearpage
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+  \twocolumn%
 }
 
 %\newcommand*{\hbPartCover}{lib/book/img/part-cover}

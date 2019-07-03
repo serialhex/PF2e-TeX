@@ -28,16 +28,16 @@
 \fancyfoot[LE]{
   \begin{tikzpicture}[remember picture,overlay]
     % \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
-    \node[xshift=20pt,yshift=30pt] at (current page.south west) {\pfPageNumberFont\textcolor{pagegold}{\thepage}};
-    \node[anchor=south west,xshift=\marginparwidth+\marginparpush,yshift=27pt] at (current page.south west) {\pfFooterFont{\textcolor{pagegold}{\nouppercase\leftmark}}};
+    \node[xshift=20pt,yshift=30pt] at (current page.south west) {\pfFooterFont\textcolor{pfFooterColor}{\thepage}};
+    \node[anchor=south west,xshift=\marginparwidth+\marginparpush,yshift=23pt] at (current page.south west) {\pfFooterFont{\textcolor{pfFooterColor}{\nouppercase\leftmark}}};
   \end{tikzpicture}
 }
 
 \fancyfoot[RO]{
   \begin{tikzpicture}[remember picture,overlay]
     % \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{lib/book/img/footerscroll}};
-    \node[xshift=-20pt,yshift=30pt] at (current page.south east) {\pfPageNumberFont\textcolor{pagegold}{\thepage}};
-    \node[anchor=south east,xshift=-\marginparwidth-\marginparpush,yshift=27pt] at (current page.south east) {\pfFooterFont{\textcolor{pagegold}{\nouppercase\leftmark}}};
+    \node[xshift=-20pt,yshift=30pt] at (current page.south east) {\pfFooterFont\textcolor{pfFooterColor}{\thepage}};
+    \node[anchor=south east,xshift=-\marginparwidth-\marginparpush,yshift=23pt] at (current page.south east) {\pfFooterFont{\textcolor{pfFooterColor}{\nouppercase\leftmark}}};
   \end{tikzpicture}
 }
 
