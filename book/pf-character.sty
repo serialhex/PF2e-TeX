@@ -27,7 +27,15 @@
   right=0pt,
   title={#2 \hfill #3},
   toptitle=3mm,
+  % Use the following for debugging
+  % enhanced,show bounding box,
   {#1}
+}
+
+\newcommand{\pfGenOption}[3]{
+  \begin{pf@charoption}{#1}{#2}
+    #3
+  \end{pf@charoption}
 }
 
 \newcommand{\pfBackground}[4]{%

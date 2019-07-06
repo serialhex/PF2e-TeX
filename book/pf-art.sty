@@ -38,11 +38,11 @@
 
 % There is also an \includesvg command from the svg package...
 % Black magic from StackOverflow
-\newcommand*\pfInlineArt[1]{%
-  \raisebox{-0.2\baselineskip}{%
+\newcommand*\pfInlineArt[2][1.0]{%
+  \raisebox{-0.2\dimexpr#1\baselineskip}{%
       \includegraphics[
-        height=\baselineskip,
+        height=#1\baselineskip,
         keepaspectratio,
-      ]{#1}%
+      ]{#2}%
   }
 }
