@@ -6,20 +6,22 @@
 % \renewcommand{\rmdefault}{\manuale}
 % \setmainfont{Cambria}
 
-\newcommand{\pf@TitleFont}{\normalfont\scshape\Huge}
+\newcommand{\pfTitleFont}{\normalfont\scshape\Huge}
 
-\newcommand{\pf@TableTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\Large}
-\newcommand{\pf@TableBodyFont}{\normalfont\fontfamily{lmss}\selectfont\sffamily\normalsize}
+\newcommand{\pfTableTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\Large}
+\newcommand{\pfTableBodyFont}{\normalfont\fontfamily{lmss}\selectfont\sffamily\normalsize}
 
-\newcommand{\pf@BoxTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\color{black}}
-\newcommand{\pf@BoxBodyFont}{\sffamily}
+\newcommand{\pfBoxTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\color{black}}
+\newcommand{\pfBoxBodyFont}{\sffamily}
 
-\newcommand{\pf@StatBlockTitleFont}{\gothic\LARGE}
-\newcommand{\pf@StatBlockSubtitleFont}{\gothic}
-\newcommand{\pf@StatBlockBodyFont}{\junction\footnotesize}
+\newcommand{\pfStatBlockTitleFont}{\gothic\LARGE}
+\newcommand{\pfStatBlockSubtitleFont}{\gothic}
+\newcommand{\pfStatBlockBodyFont}{\fira\footnotesize\onehalfspacing}
 
-\newcommand{\pf@FooterFont}{\normalfont\scshape}
-\newcommand{\pf@PageNumberFont}{\normalfont}
+\newcommand{\pfTraitFont}{\gothic\large\color{tagfont}}
+
+\newcommand{\pfFooterFont}{\normalfont\scshape}
+\newcommand{\pfPageNumberFont}{\normalfont}
 
 % Used Fonts, I should keep these.
 \newfontfamily\gothic[
@@ -41,6 +43,21 @@
   Extension = .otf,
   UprightFont = *
 ]{Prociono}
+
+\newfontfamily\fira[
+  Path = lib/book/fonts/,
+  Extension = .otf,
+  UprightFont = *-Book,
+  BoldFont = *-Bold,
+  ItalicFont = *-BookItalic,
+  BoldItalicFont = *-BoldItalic,
+]{FiraSans}
+
+\newfontfamily\alice[
+  Path = lib/book/fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular
+]{Alice}
 
 % Default Serif font
 % \newfontfamily\manuale[

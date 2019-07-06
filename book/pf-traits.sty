@@ -4,11 +4,13 @@
 % \setlength{\wrapoverhang}{\marginparwidth}
 % \addtolength{\wrapoverhang}{\marginparsep}
 
+% This is unused and will be removed, use \trait{} instead
 \newcommand{\traits}[1]{%
   \setlength\intextsep{0pt}%
   \begin{wrapfigure}{l}[2mm]{1.1cm}%
     \centering
     \begin{tcolorbox}[width=1.778cm,
+<<<<<<< HEAD
                      colframe=tagborder,
                      colback=tagbg,
                      arc=1mm,
@@ -19,8 +21,34 @@
                      top=0mm,
                      bottom=0mm,
                      nobeforeafter,
+=======
+                      colframe=tagborder,
+                      colback=tagbg,
+                      arc=1mm,
+                      box align=center,
+                      halign=flush center,
+                      left*=0mm,
+                      right*=0mm,
+                      nobeforeafter,
+>>>>>>> 7a1cc908af2b9d66f156b0fd1d5c889a5ed9fa9c
                     ]%
-      \textbf{#1}
+      \pfTraitFont{} #1
     \end{tcolorbox}%
   \end{wrapfigure}%
+}
+
+\newcommand{\trait}[1]{%
+  \setlength\intextsep{0pt}%
+  \begin{tcolorbox}[hbox,
+                    colframe=tagborder,
+                    colback=tagbg,
+                    arc=1mm,
+                    % box align=center,
+                    % halign=flush center,
+                    left*=2mm,
+                    right*=2mm,
+                    nobeforeafter,
+                  ]%
+    \pfTraitFont{} #1
+  \end{tcolorbox}%
 }

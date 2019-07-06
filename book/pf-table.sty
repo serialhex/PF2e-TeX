@@ -11,11 +11,11 @@
 \newcommand{\tableheader}[1]{{
   \par\vspace*{8pt}
   \noindent
-  \pf@TableTitleFont
+  \pfTableTitleFont
   #1}}
 
 \newcommand{\header}[1]{%
-  \textbf{\cellcolor{tabletitle}\color{white}{#1}}%
+  \textbf{\cellcolor{tabletitlebg}\color{tabletitlefg}{#1}}%
 }
 
 % Centered Column
@@ -23,15 +23,29 @@
 
 % Table Environment
 \newenvironment{pf-table}[1][lX]{
-    \par\vspace*{8pt}
-    \noindent
-    \pf@TableBodyFont
-    \rowcolors{1}{bgtan}{commentgreen} % Alternate colors
-    \tabularx{\linewidth}{#1}
+  \par\vspace*{8pt}
+  \noindent
+  \pfTableBodyFont
+  \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
+  \tabularx{\linewidth}{#1}
 }{
-    \endtabularx
-    \vspace{8pt plus 1pt}
-    \noindent
+  \endtabularx
+  \vspace{8pt plus 1pt}
+  \noindent
+}
+
+\newenvironment{pf-table*}[1][lX]{
+  \onecolumn
+  \par\vspace*{8pt}
+  \noindent
+  \pfTableBodyFont
+  \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
+  \tabularx{\textwidth}{#1}
+}{
+  \endtabularx
+  \twocolumn
+  \vspace{8pt plus 1pt}
+  \noindent
 }
 
 % Table Environment
@@ -39,7 +53,7 @@
     \par\vspace*{8pt}
     \noindent
     \fontfamily{lmss}\selectfont %Select font
-    \rowcolors{1}{bgtan}{commentblue} % Alternate colors
+    \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
     \tabularx{\linewidth}{#1}
 }
 {
@@ -52,8 +66,8 @@
 % \newenvironment{pf-longtable}[1][lX]{
 %     \par\vspace*{8pt}
 %     \noindent
-%     \pf@TableBodyFont
-%     \rowcolors{1}{commentgreen}{bgtan} % Alternate colors
+%     \pfTableBodyFont
+%     \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
 %     \supertabular{#1}
 % }{
 %     \endsupertabular
@@ -82,7 +96,7 @@
     % \end{table*}
 }
 
-\DeclareCaptionFont{pf@CaptionFont}{\pf@StatBlockTitleFont}
+\DeclareCaptionFont{pf@CaptionFont}{\pfStatBlockTitleFont}
 
 \newenvironment{pf-weapontable}[1]{
   \table
@@ -95,8 +109,8 @@
                 font={pf@CaptionFont,color=tabletitle}}
   \caption{#1}
 
-  \pf@TableBodyFont
-  \rowcolors{1}{bgtan}{commentgreen} % Alternate colors
+  \pfTableBodyFont
+  \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
 
   \tabularx{\textwidth}{l|c|c|c|c|c|X}
   \header{Weapon} & \header{Price} & \header{Damage} & \header{Bulk} & \header{Hands} & \header{Group} & \header{Weapon Traits} \\

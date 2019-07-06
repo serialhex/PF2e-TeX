@@ -13,31 +13,32 @@
 % Actions & Activities
 %
 \newenvironment{pf-action}[1]{%
-  \onehalfspacing%
-  \actionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\actionIcon\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity2}[1]{%
-  \onehalfspacing%
-  \activityTwoIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\activityTwoIcon\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity3}[1]{%
-  \onehalfspacing%
-  \activityThreeIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\activityThreeIcon\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-freeaction}[1]{%
-  \onehalfspacing%
-  \freeActionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\freeActionIcon\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-reaction}[1]{%
-  \onehalfspacing%
-  \reactionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\reactionIcon\hangindent=\baselineskip\textbf{#1}%
+  {\unskip}%
+}{\par}
+
+\newenvironment{pf-misc}[1]{%
+  \noindent\hangindent=\baselineskip%
+  \textbf{#1}%
   {\unskip}%
 }{\par}

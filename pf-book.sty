@@ -43,7 +43,22 @@
   \PackageWarning{pf}{#1 is deprecated and will be removed in version #2.\IfNoValueF{#3}{ #3}}
 }
 
-\usepackage{lipsum}
+%
+% Generally used things
+%
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{multicol}
+
+% probably going to remove this eventually...
+\usepackage{longtable,booktabs}
+\usepackage{csquotes}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 %
 % Options
 %
@@ -110,7 +125,7 @@
 \RequirePackage{lib/book/pf-box}
 \RequirePackage{lib/book/pf-colors}
 \RequirePackage{lib/book/pf-fonts}     % font definitions
-\RequirePackage{lib/book/pf-header}    % fancy headers and footers
+\RequirePackage{lib/book/pf-pagestyle}    % page style
 \RequirePackage{lib/book/pf-list}
 \RequirePackage{lib/book/pf-monster}
 \RequirePackage{lib/book/pf-sections}
@@ -123,6 +138,7 @@
 \RequirePackage{lib/book/pf-traits}
 \RequirePackage{lib/book/pf-rarity}
 \RequirePackage{lib/book/pf-character}
+\RequirePackage{lib/book/pf-items}
 
 % Set paragraph and line spacing
 %\linespread{1.1}%
