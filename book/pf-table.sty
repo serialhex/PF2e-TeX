@@ -35,17 +35,14 @@
 }
 
 \newenvironment{pf-table*}[1][lX]{
-  \onecolumn
-  \par\vspace*{8pt}
+  \table
   \noindent
   \pfTableBodyFont
   \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
   \tabularx{\textwidth}{#1}
 }{
   \endtabularx
-  \twocolumn
-  \vspace{8pt plus 1pt}
-  \noindent
+  \endtable
 }
 
 % Table Environment
@@ -106,7 +103,8 @@
                 justification=raggedright,
                 format=plain,
                 singlelinecheck=false,
-                font={pf@CaptionFont,color=tabletitle}}
+                font={pf@CaptionFont,
+                  color=tabletitlefg}}
   \caption{#1}
 
   \pfTableBodyFont
