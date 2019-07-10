@@ -13,15 +13,23 @@
 \addtolength{\nobgfooterheight}{-\footskip}
 
 \newcommand{\background}{lib/book/img/background}
+\newcommand{\backgroundl}{\background}
+\newcommand{\backgroundr}{\background}
 
 \renewcommand{\headrulewidth}{0.0pt} %no rule for header
 \renewcommand{\footrulewidth}{0.0pt} %no rule for footer
 
 \fancyhf{} % clear all headers and footers
 
-\fancyhead{
+\fancyhead[O]{
   \begin{tikzpicture}[remember picture,overlay]
-    \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\background}};
+    \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundr}};
+  \end{tikzpicture}
+}
+
+\fancyhead[E]{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundl}};
   \end{tikzpicture}
 }
 
@@ -46,9 +54,21 @@
 
 \fancypagestyle{part}{
   \fancyhf{} % clear all headers and footers
-  \fancyhead{
+  \fancyhead[O]{
     \begin{tikzpicture}[remember picture,overlay]
-      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\background}};
+      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundr}};
+      % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{lib/book/img/header-part-circ}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
+    \end{tikzpicture}
+  }
+}
+
+\fancypagestyle{part}{
+  \fancyhf{} % clear all headers and footers
+  \fancyhead[E]{
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundl}};
       % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{lib/book/img/header-part-circ}};
       % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
       % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-part}};
@@ -58,9 +78,20 @@
 
 \fancypagestyle{chapter}{
   \thispagestyle{fancy}
-  \fancyhead{
+  \fancyhead[O]{
     \begin{tikzpicture}[remember picture,overlay]
-      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\background}};
+      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundr}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
+    \end{tikzpicture}
+  }
+}
+
+\fancypagestyle{chapter}{
+  \thispagestyle{fancy}
+  \fancyhead[E]{
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundl}};
       % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
       % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/book/img/header-chapter}};
     \end{tikzpicture}

@@ -14,7 +14,7 @@
   title=Title,
   subtitle=subtitle,
   ]{
-  \onecolumn
+  % \onecolumn
   \thispagestyle{empty}
   \AddThispageHook{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
@@ -31,7 +31,7 @@
     \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
   \end{center}
   \clearpage
-  \twocolumn%
+  % \twocolumn%
 }
 
 % Logo Only Cover
@@ -39,7 +39,7 @@
   image=,
   ]{
   \pagenumbering{alph}
-  \onecolumn
+  % \onecolumn
   \thispagestyle{empty}
   \AddThispageHook{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
@@ -51,7 +51,7 @@
   \clearpage
   \pagenumbering{roman}
   \setcounter{page}{1}
-  \twocolumn%
+  % \twocolumn%
 }
 
 %\newcommand*{\hbPartCover}{lib/book/img/part-cover}
