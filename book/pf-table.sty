@@ -6,6 +6,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{caption}
+\usepackage{ifthen}
 
 % Table Header
 \newcommand{\tableheader}[1]{{
@@ -18,28 +19,49 @@
   \textbf{\cellcolor{tabletitlebg}\color{tabletitlefg}{#1}}%
 }
 
-% Centered Column
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-
 % Table Environment
-\newenvironment{pf-table}[1][lX]{
-  \par\vspace*{8pt}
+\newenvironment{pf-table}[2][]{
+  % \par\vspace*{8pt}
   \noindent
+  \table
+
+  \ifthenelse{\equal{#1}{}}
+    {}% empty
+    { \captionsetup{margin=0pt,
+                justification=raggedright,
+                format=plain,
+                singlelinecheck=false,
+                font={pf@CaptionFont,
+                  color=tablecaption}}
+      \caption{#1}}% not empty
+
   \pfTableBodyFont
   \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
-  \tabularx{\linewidth}{#1}
+  \tabularx{\linewidth}{#2}
 }{
   \endtabularx
-  \vspace{8pt plus 1pt}
-  \noindent
+  \endtable
+  % \vspace{8pt plus 1pt}
+  % \noindent
 }
 
-\newenvironment{pf-table*}[1][lX]{
+\newenvironment{pf-table*}[2][]{
   \table
+
   \noindent
+    \ifthenelse{\isempty{#1}}
+    {}% empty
+    { \captionsetup{margin=0pt,
+                    justification=raggedright,
+                    format=plain,
+                    singlelinecheck=false,
+                    font={pf@CaptionFont,
+                      color=tablecaption}}
+      \caption{#1}}% not empty
+
   \pfTableBodyFont
   \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
-  \tabularx{\textwidth}{#1}
+  \tabularx{\textwidth}{#2}
 }{
   \endtabularx
   \endtable
