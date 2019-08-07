@@ -19,11 +19,24 @@
   \textbf{\cellcolor{tabletitlebg}\color{tabletitlefg}{#1}}%
 }
 
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
+% \newcommand\starttable{\tablehere}
+% \newcommand\stoptable{\endtablehere}
+
 % Table Environment
 \newenvironment{pf-table}[2][]{
   % \par\vspace*{8pt}
   \noindent
-  \table
+  \tablehere
 
   \ifthenelse{\equal{#1}{}}
     {}% empty
@@ -37,10 +50,11 @@
 
   \pfTableBodyFont
   \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
+  \noindent
   \tabularx{\linewidth}{#2}
 }{
   \endtabularx
-  \endtable
+  \endtablehere
   % \vspace{8pt plus 1pt}
   % \noindent
 }
