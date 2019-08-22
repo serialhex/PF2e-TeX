@@ -3,37 +3,45 @@
 %
 % Actions, Reactions, and things like that
 %
-\newcommand{\actionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Action}}
-\newcommand{\activityTwoIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Activity2}}
-\newcommand{\activityThreeIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Activity3}}
-\newcommand{\freeActionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/FreeAction}}
-\newcommand{\reactionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Reaction}}
+
+\newcommand{\actionIcon}{{\pfIcons\selectfont [one-action] depricated}}
+\newcommand{\activityTwoIcon}{{\pfIcons\selectfont [two-actions] depricated}}
+\newcommand{\activityThreeIcon}{{\pfIcons\selectfont [three-actions] depricated}}
+\newcommand{\freeActionIcon}{{\pfIcons\selectfont [free-action] depricated}}
+\newcommand{\reactionIcon}{{\pfIcons\selectfont [reaction] depricated}}
+
+\newcommand{\oneAction}{{\pfIcons\selectfont [one-action]}}
+\newcommand{\twoAction}{{\pfIcons\selectfont [two-actions]}}
+\newcommand{\threeAction}{{\pfIcons\selectfont [three-actions]}}
+\newcommand{\freeAction}{{\pfIcons\selectfont [free-action]}}
+\newcommand{\reaction}{{\pfIcons\selectfont [reaction]}}
+
 
 %
 % Actions & Activities
 %
 \newenvironment{pf-action}[1]{%
-  \noindent\actionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\oneAction\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity2}[1]{%
-  \noindent\activityTwoIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\twoAction\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity3}[1]{%
-  \noindent\activityThreeIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\threeAction\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-freeaction}[1]{%
-  \noindent\freeActionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\freeAction\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-reaction}[1]{%
-  \noindent\reactionIcon\hangindent=\baselineskip\textbf{#1}%
+  \noindent\reaction\hangindent=\baselineskip\textbf{#1}%
   {\unskip}%
 }{\par}
 

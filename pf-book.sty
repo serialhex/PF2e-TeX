@@ -176,10 +176,13 @@
 
 
 \newcommand{\pfhline}{
+  % \noindent\hrulefill
+  %
   \vspace{-5pt}\noindent
   \begin{tikzpicture}[]
-    \draw (0, 0) -- (0,0) -- (\textwidth, 0.05);
+    \draw (0, 0) -- (0,0) -- (\linewidth, 0.05);
   \end{tikzpicture}%
+  %
   % \leaders\hbox{\rule[0.5em]{1pt}{3pt}}\hfill%
   % \par%
 }
