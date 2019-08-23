@@ -104,7 +104,7 @@
 
 \titleformat{\chapter}
 [display]
-{\thispagestyle{chapter}\vspace{-60pt}\color{title1}\pfTitleFont}
+{\thispagestyle{chapter}\vspace{-60pt}\color{title1}\pfChapterFont}
 {\flushright \normalsize \color{title1} \MakeUppercase{\chaptertitlename}{\fontsize{60}{60}\selectfont \color{title1}\thechapter}}
 {0em}
 {\Huge}
@@ -113,30 +113,30 @@
 %%%%%%%%%%%%%% \section
 
 \titleformat{\section}%[block]
-{\color{title1}\pfTitleFont\LARGE}{\thesection}{0.5em}{}
+{\color{title1}\pfSectionFont\LARGE}{\thesection}{0.5em}{}
 [{\titleline{\color{undergold}\titlerule[0.5pt]}}]
 
 %%%%%%%%%%%%%% \subsection
 
 
 \titleformat{\subsection}%[block]
-{\color{title2}\pfTitleFont\Large}{\thesubsection}{0.5em}{}
+{\color{title2}\pfSubsectionFont\Large}{\thesubsection}{0.5em}{}
 [{\titleline{\color{title2}\titlerule[0.5pt]}}]
 
 %%%%%%%%%%%%%% \subsubsection
 
 \titleformat{\subsubsection}
-{\color{title3}\pfTitleFont\large}{\thesubsubsection}{0em}{}[]
+{\color{title3}\pfSubsubsectionFont\large}{\thesubsubsection}{0em}{}[]
 
 %%%%%%%%%%%%%% \paragraph
 
 \titleformat{\paragraph}
-{\color{title3}\pfTitleFont\normalsize\large}{\theparagraph}{0em}{}
+{\color{title3}\pfParagraphFont\normalsize\large}{\theparagraph}{0em}{}
 
 %%%%%%%%%%%%%% \subparagraph
 
 \titleformat{\subparagraph}[runin]
-{\normalfont\normalsize\bfseries\slshape}
+{\pfSubparagraphFont\normalsize\bfseries\slshape}
 {\thesubparagraph\quad}
 {0pt}
 {}

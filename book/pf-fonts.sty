@@ -2,11 +2,20 @@
 \RequirePackage[T1]{fontenc}
 \usepackage{fontspec}
 
+% This is so we have all the cool features and have ``foo'' become “foo” like it should!!!
+\defaultfontfeatures{Ligatures=TeX}
+
 % \renewcommand{\sfdefault}{lmss}
 % \renewcommand{\rmdefault}{\manuale}
 % \setmainfont{Cambria}
 
 \newcommand{\pfTitleFont}{\normalfont\scshape\Huge}
+\newcommand{\pfChapterFont}{\pfTitleFont}
+\newcommand{\pfSectionFont}{\pfTitleFont}
+\newcommand{\pfSubsectionFont}{\pfTitleFont}
+\newcommand{\pfSubsubsectionFont}{\pfTitleFont}
+\newcommand{\pfParagraphFont}{\pfTitleFont}
+\newcommand{\pfSubparagraphFont}{\normalfont}
 
 \newcommand{\pfTableTitleFont}{\fontfamily{fosj}\selectfont\bfseries\scshape\Large}
 \newcommand{\pfTableBodyFont}{\normalfont\fontfamily{lmss}\selectfont\sffamily}
