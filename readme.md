@@ -8,6 +8,8 @@ A lot of this may break and not work initially.  I do want and appreciate pull r
 
 ## How to use
 
+`git submodule add http://192.168.1.2:3000/serialhex/PF2e-Tex.git lib` BAM!
+
 ### NOTE!!!
 
 **There was a specific way that I was using this library.  Basically as a submodule included into my other projects.  Unfortunately I have changed the build process like a dozen times since I initially wrote this intro, so that is out-of-date.  Once I have this in more than a pre-alpha stage I'll write a better into on how this can be used.  For now, you can use the following mostly not-good method.**
