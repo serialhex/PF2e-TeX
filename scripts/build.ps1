@@ -1,47 +1,16 @@
 
+$title = "My Awesome PF2e RPG Book"
 
-# The following three variables you need to edit.  Do it, or things won't work.
-# The first one is probably going to be the most edited, as you're going to add
-# files and remove other files and reorder things, etc...
+# Pre-generate, to get a lot of the general stuff out of the way
+Write-Output "Generating PDF"
+xelatex.exe -halt-on-error -interaction=batchmode -no-pdf "$title.tex"
 
-# Put the files in the order you want them
-$files_str = @( "Input1.md",
-                "Input 2.md",
-                "Chapter 4.md",
-                "Rewrite of chapter 3.md",
-                "Beginning.md",
-                "The Llama has a fork.md"
-                )
-
-# Where are these files located?
-$dir = "chapters"
-
-# What is the title of your book?
-$title = "Output"
-
-################################################################################
-## You shouldn't have to edit anything below this line.
-################################################################################
-
-$files = @()
-foreach ($file in $files_str) {
-  $files += Get-Item ".\$dir\$file"
+# Open file if building succeeded
+if ($?) {
+  # build a second time to make sure images and TOC are correct
+  xelatex.exe -halt-on-error -interaction=batchmode -output-driver='xdvipdfmx -z3' "$title.tex"
+  Write-Output "Presenting..."
+  & ".\$title.pdf"
+} else {
+  Write-Output "Build failed for some reason.  Check '$title.log' for more information"
 }
-
-# set up output dir
-$bin = "$pwd\bin"
-Write-Output $bin
-if (Get-Item $bin) {
-  Write-Output "Removing $bin"
-  Remove-Item $bin -Recurse
-}
-mkdir $bin
-
-Set-Location $bin
-
-Write-Output "Using Pandoc"
-pandoc --template tmpl.latex -o "$title.tex" $files
-
-Write-Output "Using xelatex"
-xelatex -halt-on-error "$title.tex"
-
