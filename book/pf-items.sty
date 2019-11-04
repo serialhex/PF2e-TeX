@@ -72,9 +72,9 @@
   \textbf{#2}~\commandkey{#1}%
 }
 
-\newcommand{\pf@ifitemattr}[2]{%
+\newcommand{\pf@ifitemattr}[3]{%
   \ifcommandkey{#1}{%
-    \textbf{#2}~\commandkey{#1}%
+    \textbf{#2}~\commandkey{#1}{#3}%
   }{}%
 }
 
@@ -92,9 +92,9 @@
 \raggedright
 \noindent
 
-\pf@itemattr{price}{\pricetext}\\
-\pf@itemattr{method}{\methodtext}; \pf@itemattr{bulk}{\commandkey{unit}}\\
-\pf@ifitemattr{activation}{\activationtext}\pf@ifitemattr{onset}{; \onsettext}
+\pf@ifitemattr{price}{\pricetext}{\\}
+\pf@ifitemattr{method}{\methodtext}{; }\pf@itemattr{bulk}{\commandkey{unit}}\\
+\pf@ifitemattr{activation}{\activationtext}{}\pf@ifitemattr{onset}{; \onsettext}{}
 
 \vspace{-1ex}\noindent\hrulefill\\
 \endgroup
