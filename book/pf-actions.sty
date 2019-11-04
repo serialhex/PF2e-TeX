@@ -4,11 +4,11 @@
 % Actions, Reactions, and things like that
 %
 
-\newcommand{\actionIcon}{{\pfIcons\selectfont [one-action] depricated}}
-\newcommand{\activityTwoIcon}{{\pfIcons\selectfont [two-actions] depricated}}
-\newcommand{\activityThreeIcon}{{\pfIcons\selectfont [three-actions] depricated}}
-\newcommand{\freeActionIcon}{{\pfIcons\selectfont [free-action] depricated}}
-\newcommand{\reactionIcon}{{\pfIcons\selectfont [reaction] depricated}}
+\newcommand{\actionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Action}}
+\newcommand{\activityTwoIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Activity2}}
+\newcommand{\activityThreeIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Activity3}}
+\newcommand{\freeActionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/FreeAction}}
+\newcommand{\reactionIcon}[1][1.0]{\pfInlineArt[#1]{lib/book/img/Reaction}}
 
 \newcommand{\oneAction}{{\pfIcons\selectfont [one-action]}}
 \newcommand{\twoAction}{{\pfIcons\selectfont [two-actions]}}
@@ -18,7 +18,7 @@
 
 
 %
-% Actions & Activities
+% Actions & Activities Only for use with the font!
 %
 \newenvironment{pf-action}[1]{%
   \noindent\oneAction\hangindent=\baselineskip\textbf{#1}%

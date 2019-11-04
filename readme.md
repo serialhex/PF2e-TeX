@@ -8,27 +8,31 @@ A lot of this may break and not work initially.  I do want and appreciate pull r
 
 ## How to use
 
+tl;dr:
+
+```
+git init foo
+cd foo
+git submodule add https://github.com/serialhex/PF2e-Tex.git lib
+cp lib/scripts/build.ps1 .
+cp lib/scripts/tmpl.tex foo.tex
+nano build.ps1                    # change $title variable to "foo"
+nano foo.tex                      # start writing your awesome content
+./build.ps1                       # look at your awesome PDF
+```
+
+BAM!
+
 ### NOTE!!!
 
-**There was a specific way that I was using this library.  Basically as a submodule included into my other projects.  Unfortunately I have changed the build process like a dozen times since I initially wrote this intro, so that is out-of-date.  Once I have this in more than a pre-alpha stage I'll write a better into on how this can be used.  For now, you can use the following mostly not-good method.**
+**There was a specific way that I was using this library.  Basically as a submodule included into my other projects.  Unfortunately I have changed the build process like a dozen times since I initially wrote this intro, so that is out-of-date.  Once I have this in more than a pre-alpha stage I'll write a better into on how this can be used.**
 
-How _**I**_ am using this, is as a submodule in projects that require it.  Here is how I lay things out:
+There are a pair of scripts in the `scripts` directory.  Well a script and a template.  Use the `build.ps1` script to, well, build the project, and the template `tmpl.tex` as the main file that you include everything else in.  When you make your project, change the name of the `$title` variable to whatever you named your TeX file.  The resulting PDF will be named the same thing.
 
-- tmpl.latex
-- build.ps1
-- PF2e-TeX
-- Project
-  - File1.md
-  - File2.md
-  - FileX.md
+The script uses xelatex for all rendering, so be sure to have that installed.  I use TexLive on Windows, with *ALL OF THE THINGS* installed.  I try not to use utilities that need to fetch rando libraries from the 'net, so anything I use will (hopefully) either be in a default install or included.  Make an issue & maybe a PR of this isn't the case.
 
-The `tmpl.latex` and `build.ps1` files are in the `scripts` directory of this repository, but I copy them over and adjust them as needed.  If you look in the `build.ps1` file, I use Pandoc to assemble the Markdown files together into one tex document, that then gets passed into XeLaTeX.  Both of those files **need to** get edited a bit for your specific project.  The reason they are in this repository is so I don't have to write those scripts a dozen times, I just edit them as I need to.
+I typically use a `./ch/` directory and `\include{}` all my files from there.  This makes it easier to work on one part at a time.  If you need to further subdivide you can use the `\input{}` directive to add more stuff.  I've done this, for example, to make some 1e & 2e Pathfinder stuff that has the same intro text, but of course very different rules.  Using `\include{foo-2e}` and `\include{foo-1e}`, then inside both `foo-*` have an `\input{foo-intro}` makes it mush easier if I want to change the intro a bit, I only have to do it once.
 
-### Say WAAAAT?
-
-Why do things this way?  First of all, Markdown is simpler for just laying down text with minimal formatting, which is why everything is in Markdown initially.  Pandoc does an awesome job of compiling Markdown to TeX, and will keep all TeX markup in the document in such a way as to be rendered properly.
-
-Also, what is a `*.ps1` file you ask?  It's a PowerShell script file.  If you're not on Windows you probably don't have it.  I don't have the time or energy to get this to work in *nix yet, so if you want one, and you're *nix savvy, go ahead and make one and open a pull request.  I'll take a look and if it's good it will be pulled in.
 
 ## License
 
