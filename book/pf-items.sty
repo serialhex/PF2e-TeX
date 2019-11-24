@@ -81,10 +81,10 @@
 % Macros for use within the item environment
 \newkeycommand\itemBasics[
     price=,
-    method=,
+    usage=,
     bulk=L,
     unit=\bulktext,
-    activation=,
+    activate=,
     onset=,
     ]{%
 \begingroup
@@ -93,9 +93,25 @@
 \noindent
 
 \pf@ifitemattr{price}{\pricetext}{\\}
-\pf@ifitemattr{method}{\methodtext}{; }\pf@itemattr{bulk}{\commandkey{unit}}\\
-\pf@ifitemattr{activation}{\activationtext}{}\pf@ifitemattr{onset}{; \onsettext}{}
+\pf@ifitemattr{usage}{\usagetext}{; }\pf@itemattr{bulk}{\commandkey{unit}}\\
+\pf@ifitemattr{activate}{\activatetext}{}\pf@ifitemattr{onset}{; \onsettext}{}
 
 \vspace{-1ex}\noindent\hrulefill\\
 \endgroup
+}
+
+\newkeycommand\degreeSuccess[
+  critsuccess={The target is unaffected.},
+  success=,
+  fail=,
+  critfail=,
+  hang={0.7cm},
+  ]{%
+  \noindent\hangindent=\commandkey{hang}\textbf{Critical Success} \commandkey{critsuccess}
+
+  \noindent\hangindent=\commandkey{hang}\textbf{Success} \commandkey{success}
+
+  \noindent\hangindent=\commandkey{hang}\textbf{Failure} \commandkey{fail}
+
+  \noindent\hangindent=\commandkey{hang}\textbf{Critical Failure} \commandkey{critfail}
 }
