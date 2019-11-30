@@ -45,25 +45,25 @@
   \setlength{\unitlength}{#1\linewidth}%
   \setlength{\intextsep}{-1ex}%
   \docolaction{% left if we're in the left column
-    \setlength{\columnsep}{-1em}%
+    \setlength{\columnsep}{0em}%
     \begin{wrapfigure}{l}{\unitlength}%
       \centering%
       \includegraphics[width=\unitlength]{#2}%
-      \vspace{-2ex}%
+      % \vspace{-2ex}%
     \end{wrapfigure}%
   }{% left if we're in the middle column
-    \setlength{\columnsep}{-1em}%
+    \setlength{\columnsep}{0em}%
     \begin{wrapfigure}{l}{\unitlength}%
       \centering%
       \includegraphics[width=\unitlength]{#2}%
-      \vspace{-2ex}%
+      % \vspace{-2ex}%
     \end{wrapfigure}%
   }{% right if we're in the right column
     \setlength{\columnsep}{0em}%
     \begin{wrapfigure}{r}{\unitlength}%
       \centering%
       \includegraphics[width=\unitlength]{#2}%
-      \vspace{-2ex}%
+      % \vspace{-2ex}%
     \end{wrapfigure}%
   }%
 }

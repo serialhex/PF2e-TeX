@@ -65,7 +65,7 @@
 % parchment box
 % mostly taken from: http://www.texample.net/tikz/examples/framed-tikz/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pgfmathsetseed{1} % for redictable results
+\pgfmathsetseed{1} % for predictable results
 % Define background layer, in which the parchment shape is drawn
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
@@ -150,7 +150,12 @@
 
 % torn box
 % mostly from: http://www.texample.net/tikz/examples/torn-paper/
+% it's cool but currently does not work.
+% Fix it!!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Use as:
+% \tornpaper{ Content in here... }
 
 \newcounter{mathseed}
 \setcounter{mathseed}{3}
@@ -256,7 +261,7 @@
 
 \newcommand{\pfsmallbox}[1][]{
   \tcbox[nobeforeafter,box align=base,size=fbox,height=0.6cm]{
-    \ifthenelse{\isempty{#1}}{\hspace{0.5cm}}%empty
+    \ifthenelse{\equal{#1}{}}{\hspace{0.5cm}}%empty
     {\pfsmall{#1}}% not empty
   }
 }
@@ -296,5 +301,3 @@
     \textit{\small{#2}}
   \end{flushright}
 }
-
-
