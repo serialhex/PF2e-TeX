@@ -7,8 +7,8 @@
 \usepackage{changepage}
 \usepackage{setspace}
 
-% Monster box made to look like the Monster Manual NPC definitions
-\newtcolorbox{monsterboxnobg}[3][]{
+% Basic creature box
+\newtcolorbox{creaturebox}[3][]{
   enhanced,
   frame hidden,
   boxrule=0pt,
@@ -23,55 +23,20 @@
   fonttitle=\pfStatBlockTitleFont,
   fontupper=\pfStatBlockBodyFont,
   title={#2 \hfill #3},
+  before upper={\pfhline{}\\},
   coltitle=creature,
   #1
 }
 
-% Stat block made to look like stat blocks in the PHB.
-\newtcolorbox{monsterboxbg}[2][]{
-  enhanced,
-  frame hidden,
-  before skip=7pt plus 2pt,
-  boxrule=0pt,
-  breakable,
-  boxsep=0pt,
-  toptitle=11pt,
-  left=7pt,
-  right=7pt,
-  bottom=11pt,
-  arc=0mm,
-  oversize=0pt,
-  borderline north={4pt}{0pt}{title1},
-  borderline north={2.5pt}{0.75pt}{statblockribbon},
-  borderline south={4pt}{0pt}{title1},
-  borderline south={2.5pt}{0.75pt}{statblockribbon},
-  colback=statblockbg,
-  colbacktitle=statblockbg,
-  colframe=title1,
-  fonttitle=\pfStatBlockTitleFont,
-  coltitle=title1,
-  fontupper=\pfStatBlockBodyFont,
-  title=#2,
-  #1
-}
-
-\iftoggle{bool-bg}{
-  \let\monsterbox\monsterboxbg%
-  \let\endmonsterbox\endmonsterboxbg%
-}{
-  \let\monsterbox\monsterboxnobg%
-  \let\endmonsterbox\endmonsterboxnobg%
-}
-
-% A pf@monsterattrs helper macro that always displays an attribute.
-\newcommand{\pf@monsterattr}[2]{%
+% A pf@creatureattrs helper macro that always displays an attribute.
+\newcommand{\pf@creatureattr}[2]{%
   \textbf{#2} \commandkey{#1}%
 }
 
 
-% A pf@monsterattrs helper macro that displays an attribute if the user defined
+% A pf@creatureattrs helper macro that displays an attribute if the user defined
 % it.
-\newcommand{\pf@ifmonsterattr}[2]{%
+\newcommand{\pf@ifcreatureattr}[2]{%
   \ifcommandkey{#1}{%
     ; \textbf{#2} \commandkey{#1}%
   }{}%
@@ -81,41 +46,36 @@
 % Macros for use within the monster environment
 %
 \newkeycommand\basics[
-    perception=0,
-    languages=-,
-    skills=+0,
+    perception=0, % perception mod, followed by special senses
+    languages=-, % languages, followed by special communication abilities; no languages means it can't communicate through language
+    skills=+0, % the creature is trained or better with these skills
     str=+0,
     dex=+0,
     con=+0,
     int=+0,
     wis=+0,
     cha=+0,
-    items=,
-    interact=,
-    traits=,
-    ac=10,
-    tac=10,
-    fort=0,
+    items=, % list any significant gear the creature carries
+    interact=, % special abilities that affect how a creature perceives and interacts with the world
+    ac=10, % followed by special bonuses to AC
+    fort=0, % a special bonus to a specific save appears in parenthesis after the saves bonus
     ref=0,
     will=0,
-    cond=,
-    hp=1,
+    hp=1, % followed by automatic abilities that affect the creature's hit points or healing
     immune=,
     resist=,
     weak=,
-    aura=,
+    auto=, % the creature's auras, any abilities that automatically affect its defenses, and the like
+    reactions=, % free actions or reactions that are usually triggered when it's not thecreature's turn
     ]{%
 \begingroup
-\hrulefill
 \par
-\traits{\commandkey{traits}}
-
 \raggedright
 \noindent
-\onehalfspacing
-\pf@monsterattr{perception}{\perceptionname}\\
-\pf@monsterattr{languages}{\languagesname}\\
-\pf@monsterattr{skills}{\skillsname}\\
+% \onehalfspacing
+\pf@creatureattr{perception}{\perceptionname}\\
+\pf@creatureattr{languages}{\languagesname}\\
+\pf@creatureattr{skills}{\skillsname}\\
 
 \textbf{\strstatname}~\commandkey{str}, \nolinebreak
 \textbf{\dexstatname}~\commandkey{dex}, \nolinebreak
@@ -125,27 +85,33 @@
 \textbf{\chastatname}~\commandkey{cha}\\
 
 \ifcommandkey{items}{%
-\textbf{\itemsname} \commandkey{items}%
-\ifcommandkey{interact}{; }{}
+\pfdescblock{\itemsname}{\commandkey{items}}%
 }{}
+
 \ifcommandkey{interact}{%
-\textbf{\interactname} \commandkey{interact}%
+\commandkey{interact}%
 }{}
 
-\hrulefill
+\pfhline{}
 
-\pf@monsterattr{ac}{\acname},
-\pf@monsterattr{tac}{\tacname},
-\pf@monsterattr{fort}{\fortitudename},
-\pf@monsterattr{ref}{\reflexname},
-\pf@monsterattr{will}{\willname}\\
+\pf@creatureattr{ac}{\acname},
+\pf@creatureattr{fort}{\fortitudename},
+\pf@creatureattr{ref}{\reflexname},
+\pf@creatureattr{will}{\willname}\\
 
-\pf@monsterattr{hp}{\hpname}%
-\pf@ifmonsterattr{immune}{\immname}%
-\pf@ifmonsterattr{resist}{\resistname}%
-\pf@ifmonsterattr{weak}{\weakname}%
-\pf@ifmonsterattr{aura}{\auraname}
+\pf@creatureattr{hp}{\hpname}%
+\pf@ifcreatureattr{immune}{\immname}%
+\pf@ifcreatureattr{weak}{\weakname}%
+\pf@ifcreatureattr{resist}{\resistname}
 
-\hrulefill
+\ifcommandkey{auto}{%
+\commandkey{auto}%
+}{}
+
+\ifcommandkey{reactions}{%
+\commandkey{reactions}%
+}{}
+
+\pfhline{}
 \endgroup
 }

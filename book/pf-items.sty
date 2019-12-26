@@ -107,13 +107,9 @@
   success=,
   fail=,
   critfail=,
-  hang={0.7cm},
   ]{%
-  \noindent\hangindent=\commandkey{hang}\textbf{Critical Success} \commandkey{critsuccess}
-
-  \noindent\hangindent=\commandkey{hang}\textbf{Success} \commandkey{success}
-
-  \noindent\hangindent=\commandkey{hang}\textbf{Failure} \commandkey{fail}
-
-  \noindent\hangindent=\commandkey{hang}\textbf{Critical Failure} \commandkey{critfail}
+  \pfdescblock{Critical Success}{\commandkey{critsuccess}}
+  \pfdescblock{Success}{\commandkey{success}}
+  \pfdescblock{Failure}{\commandkey{fail}}
+  \pfdescblock{Critical Failure}{\commandkey{critfail}}
 }

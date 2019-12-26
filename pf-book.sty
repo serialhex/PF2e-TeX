@@ -120,6 +120,13 @@
 \ExecuteOptionsX{bg=full}
 \ProcessOptionsX\relax
 
+% Stuff every module should be able to use
+
+\newcommand{\pfdescblock}[2]{%
+\noindent\hangindent=1ex\textbf{#1}~#2
+% keep the newline
+}
+
 
 % Load other modules of this package
 \RequirePackage{lib/book/pf-art}
