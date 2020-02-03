@@ -47,7 +47,7 @@
 %
 \newkeycommand\basics[
     perception=0, % perception mod, followed by special senses
-    languages=-, % languages, followed by special communication abilities; no languages means it can't communicate through language
+    languages={---}, % languages, followed by special communication abilities; no languages means it can't communicate through language
     skills=+0, % the creature is trained or better with these skills
     str=+0,
     dex=+0,
@@ -66,7 +66,8 @@
     resist=,
     weak=,
     auto=, % the creature's auras, any abilities that automatically affect its defenses, and the like
-    reactions=, % free actions or reactions that are usually triggered when it's not thecreature's turn
+    reactions=, % free actions or reactions that are usually triggered when it's not the creature's turn
+    speed=25, % speeds, starting with base land speed
     ]{%
 \begingroup
 \par
@@ -76,23 +77,23 @@
 \pf@creatureattr{perception}{\perceptionname}\\
 \pf@creatureattr{languages}{\languagesname}\\
 \pf@creatureattr{skills}{\skillsname}\\
-
+%
 \textbf{\strstatname}~\commandkey{str}, \nolinebreak
 \textbf{\dexstatname}~\commandkey{dex}, \nolinebreak
 \textbf{\constatname}~\commandkey{con}, \nolinebreak[3]
 \textbf{\intstatname}~\commandkey{int}, \nolinebreak[3]
 \textbf{\wisstatname}~\commandkey{wis}, \nolinebreak[2]
 \textbf{\chastatname}~\commandkey{cha}\\
-
+%
 \ifcommandkey{items}{%
-\pfdescblock{\itemsname}{\commandkey{items}}%
-}{}
-
+\pfdescblock{\itemsname}{\commandkey{items}}\\%
+}{}%
+%
 \ifcommandkey{interact}{%
-\commandkey{interact}%
-}{}
-
-\pfhline{}
+\commandkey{interact}\\%
+}{}%
+%
+\pfhline{}%
 
 \pf@creatureattr{ac}{\acname},
 \pf@creatureattr{fort}{\fortitudename},
@@ -106,12 +107,15 @@
 
 \ifcommandkey{auto}{%
 \commandkey{auto}%
-}{}
+}{}%
 
 \ifcommandkey{reactions}{%
 \commandkey{reactions}%
-}{}
+}{}%
 
-\pfhline{}
+\pfhline{}%
+
+\textbf{\speedname} \commandkey{speed} feet
+
 \endgroup
 }
