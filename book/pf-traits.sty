@@ -5,31 +5,32 @@
 % \addtolength{\wrapoverhang}{\marginparsep}
 
 % This is unused and will be removed, use \trait{} instead
-\newcommand{\traits}[1]{%
-  \setlength\intextsep{0pt}%
-  \begin{wrapfigure}{l}[2mm]{1.1cm}%
-    \centering
-    \begin{tcolorbox}[width=1.778cm,
-                      colframe=tagborder,
-                      colback=tagbg,
-                      arc=1mm,
-                      box align=center,
-                      halign=flush center,
-                      left*=0mm,
-                      right*=0mm,
-                      nobeforeafter,
-                    ]%
-      \pfTraitFont{} #1
-    \end{tcolorbox}%
-  \end{wrapfigure}%
-}
+% \newcommand{\traits}[1]{%
+%   \setlength\intextsep{0pt}%
+%   \begin{wrapfigure}{l}[2mm]{1.1cm}%
+%     \centering
+%     \begin{tcolorbox}[width=1.778cm,
+%                       colframe=tagborder,
+%                       colback=tagbg,
+%                       arc=1mm,
+%                       box align=center,
+%                       halign=flush center,
+%                       left*=0mm,
+%                       right*=0mm,
+%                       nobeforeafter,
+%                     ]%
+%       \pfTraitFont{} #1
+%     \end{tcolorbox}%
+%   \end{wrapfigure}%
+% }
 
-\newcommand{\trait}[1]{%
+\newcommand{\metatrait}[3]{%
   \noindent\setlength\intextsep{0pt}%
   \begin{tcolorbox}[hbox,
-                    colframe=tagborder,
-                    colback=tagbg,
-                    arc=1mm,
+                    colframe=#1,
+                    colback=#2,
+                    % arc=0pt,
+                    sharp corners,
                     height=7mm,
                     valign=center,
                     % box align=center,
@@ -38,6 +39,39 @@
                     right*=2mm,
                     nobeforeafter,
                   ]%
-    \pfTraitFont{} #1
+    \pfTraitFont{} \uppercase{#3}
   \end{tcolorbox}%
 }
+
+% Basic trait command
+\newcommand{\trait}[1]{\metatrait{traitborder}{traitbg}{#1}}
+
+% Size traits
+\newcommand{\sizetrait}[1]{\metatrait{traitborder}{sizeColor}{#1}}
+
+\newcommand{\pfTiny}{\sizetrait{Tiny}}
+\newcommand{\pfSmall}{\sizetrait{Small}}
+\newcommand{\pfMedium}{\sizetrait{Medium}}
+\newcommand{\pfLarge}{\sizetrait{Large}}
+\newcommand{\pfHuge}{\sizetrait{Huge}}
+\newcommand{\pfGargantuan}{\sizetrait{Gargantuan}}
+
+% Alignment traits
+\newcommand{\aligntrait}[1]{\metatrait{traitborder}{alignColor}{#1}}
+
+\newcommand{\pfLG}{\aligntrait{LG}}
+\newcommand{\pfNG}{\aligntrait{NG}}
+\newcommand{\pfCG}{\aligntrait{CG}}
+
+\newcommand{\pfLN}{\aligntrait{LN}}
+\newcommand{\pfN}{\aligntrait{N}}
+\newcommand{\pfCN}{\aligntrait{CN}}
+
+\newcommand{\pfLE}{\aligntrait{LE}}
+\newcommand{\pfNE}{\aligntrait{NE}}
+\newcommand{\pfCE}{\aligntrait{CE}}
+
+% Commonality traits
+\newcommand{\pfUncommon}{\metatrait{traitborder}{uncommonColor}{Uncommon}}
+\newcommand{\pfRare}{\metatrait{traitborder}{rareColor}{Rare}}
+\newcommand{\pfUnique}{\metatrait{traitborder}{uniqueColor}{Unique}}
