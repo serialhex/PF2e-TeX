@@ -174,15 +174,13 @@
 \renewcommand{\labelitemi}{\raisebox{0.25ex}{\tiny{\( \bullet \)}}}
 
 
-
+% Figure out the best values for the pre & post \vspace
 \newcommand{\pfhline}{
-  % \noindent\hrulefill
-  %
-  \vspace{-5pt}\noindent
+  \vspace{-7pt}\noindent%
   \begin{tikzpicture}[]
     \draw (0, 0) -- (0,0) -- (\linewidth, 0.05);
   \end{tikzpicture}%
-  %
+  \vspace{-5pt}%
   % \leaders\hbox{\rule[0.5em]{1pt}{3pt}}\hfill%
   % \par%
 }
