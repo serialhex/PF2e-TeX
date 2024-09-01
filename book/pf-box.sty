@@ -2,6 +2,27 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing,calc,shadows.blur,shadings}
 
+% gotta fix this and make it look better
+\newtcolorbox{pf-boxish}[3][]{
+  enhanced,
+  frame hidden,
+  boxrule=0pt,
+  breakable,
+  boxsep=0pt,
+  toptitle=3mm,
+  left=0pt,
+  right=0pt,
+  arc=0mm,
+  opacityback=0,
+  colframe=title1,
+  fonttitle=\pfStatBlockTitleFont,
+  fontupper=\pfStatBlockBodyFont,
+  title={#2 \hfill #3},
+  before upper={\pfhline{}\\},
+  coltitle=spell,
+  #1
+}
+
 % Generic Box
 \newtcolorbox{pf-box}[2][]{
   boxrule=1pt,
