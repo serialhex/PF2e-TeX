@@ -1,0 +1,38 @@
+\documentclass[10pt,letterpaper,onecolumn,openany]{book}
+
+% The main PF2e package.
+% Make sure the location is correct for where *you* put the library!!!
+\usepackage[bg=full]{lib/pf-book} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
+
+% Some extra packages
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% Autogen text...
+\usepackage{lipsum}
+
+% This is so we don't have Table of Contents explosion, remove if desired
+\setcounter{secnumdepth}{0}
+
+% Start document
+\begin{document}
+
+\frontmatter
+
+% Your cover image, if you have one
+\pfMakeLogoCover[
+  image = img/Cover-Image
+]
+
+% Inserts Table of Contents
+\tableofcontents
+
+% Your content goes here...
+\mainmatter
+
+% \include{./ch/Content}
+
+\lipsum[1-5]
+
+\end{document}
+
