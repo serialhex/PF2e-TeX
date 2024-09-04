@@ -42,6 +42,9 @@ This is all under the MIT License, see `LICENSE.txt` for the details.  Attributi
 
 The Pathfinder logo is - of course - Copyright Paizo.  The action images were made by me, but were traced from the Pathfinder 2nd Edition Playtest Rulebook.  I'm not sure how that shakes out in a copyright thing...
 
+The Pathfinder-Icons.ttf font is also Copyright Paizo.
+
 The action images are in two formats: SVG and EPS.  The SVG is there for ease of editing, as that is the format InkScape likes to use.  The EPS files are output from InkScape because TeX doesn't understand SVG yet... -_-  I did my best to copy them from the 2nd Edition Rulebook, but there may be errors in size and rendering.
 
 The fonts are from the [League of Moveable Type](https://github.com/theleagueof/) and from [Omnibus Type](http://omnibus-type.com/) and are all under the Open Font License.  Readme's and License are in the `book/fonts` directory.  I don't believe I am using all of them right now, and I may change them for something else... we shall see...
+
