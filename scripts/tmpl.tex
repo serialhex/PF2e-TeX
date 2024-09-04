@@ -1,24 +1,33 @@
 \documentclass[10pt,letterpaper,onecolumn,openany]{book}
 
+% The main PF2e package.
+% Make sure the location is correct for where *you* put the library!!! 
 \usepackage[bg=full]{lib/pf-book} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
-%\usepackage[utf8]{inputenc}
+
+% Some extra packages
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% This is so we don't have Table of Contents explosion, remove if desired
+\setcounter{secnumdepth}{0}
 
 % Start document
 \begin{document}
 
-% \fontfamily{ppl}
-% \selectfont % Set text font
 \frontmatter
 
-% \pfMakeLogoCover[
-%   image = img/Cover-Image
-% ]
+% Your cover image, if you have one
+\pfMakeLogoCover[
+  image = img/Cover-Image
+]
 
+% Inserts Table of Contents
 \tableofcontents
 
-% Your content goes here
+% Your content goes here...
 \mainmatter
 
 % \include{./ch/Content}
 
 \end{document}
+
