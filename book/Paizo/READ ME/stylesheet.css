@@ -1,0 +1,110 @@
+/* CSS Reset/Global Elements */
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+a,
+abbr,
+del,
+s,
+img,
+sub,
+sup,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+form,
+label,
+embed,
+ol,
+ul,
+li,
+menu,
+dir {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  line-height: 1;
+  font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+  color: #000;
+}
+h1 {
+  font: bold 20px Verdana, Arial, Helvetica, sans-serif;
+}
+h2 {
+  font: bold 18px Verdana, Arial, Helvetica, sans-serif;
+}
+h3 {
+  font: bold 14px Verdana, Arial, Helvetica, sans-serif;
+}
+h4 {
+  font: bold 14px Verdana, Arial, Helvetica, sans-serif;
+}
+h5 {
+  font: bold 14px Verdana, Arial, Helvetica, sans-serif;
+}
+h6 {
+  font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+}
+blockquote {
+  quotes: none;
+  margin: 15px;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+label input,
+label textarea,
+label select {
+  display: block;
+}
+ol,
+ul {
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 3px;
+}
+th {
+  font-weight: normal;
+}
+hr {
+  margin: 5px 0 5px 0;
+  border: 0;
+  border-top: 1px solid #dfdfdf;
+}
+/* Links/Type */
+a:link,
+a:visited {
+  color: #4d3a98;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  color: #666697;
+  text-decoration: underline;
+}
