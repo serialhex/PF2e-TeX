@@ -2,7 +2,7 @@
 
 % The main PF2e package.
 % Make sure the location is correct for where *you* put the library!!!
-\usepackage[bg=full]{lib/pf-book} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
+\usepackage[bg=full]{pf-book} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
 
 % Some extra packages
 \usepackage[english]{babel}
@@ -21,7 +21,7 @@
 
 % Your cover image, if you have one
 \pfMakeLogoCover[
-  image = img/Cover-Image
+  image = lisplogo
 ]
 
 % Inserts Table of Contents
@@ -33,6 +33,8 @@
 % \include{./ch/Content}
 
 \lipsum[1-5]
+
+\InsertORC{I'm attributing stuff...}{I'm attributing Potatos!!}{Licensed material from WotC}
 
 \end{document}
 

@@ -127,26 +127,30 @@
 % keep the newline
 }
 
+%% I have now made this functionality part of my currfile package. It is provided as a sub-package currfile-abspath, which can also be used on its own. It provides \getmainfile, \getabspath{<file>} and \getpwd which set \themainfile, \theabspath and \thepwd to the main file name (which might be different from \jobname.tex), the absolute path of the given file and the parent working directory of the compiler run.
+\usepackage{currfile-abspath}
+\getabspath{pf-book.sty}
 
 % Load other modules of this package
-\RequirePackage{lib/book/pf-art}
-\RequirePackage{lib/book/pf-box}
-\RequirePackage{lib/book/pf-colors}
-\RequirePackage{lib/book/pf-fonts}     % font definitions
-\RequirePackage{lib/book/pf-pagestyle}    % page style
-\RequirePackage{lib/book/pf-list}
-\RequirePackage{lib/book/pf-creature}
-\RequirePackage{lib/book/pf-sections}
-\RequirePackage{lib/book/pf-spell}
-\RequirePackage{lib/book/pf-strings}   % Load document strings
-\RequirePackage{lib/book/pf-table}
+\RequirePackage{\theabsdir/book/pf-art}
+\RequirePackage{\theabsdir/book/pf-box}
+\RequirePackage{\theabsdir/book/pf-colors}
+\RequirePackage{\theabsdir/book/pf-fonts}     % font definitions
+\RequirePackage{\theabsdir/book/pf-pagestyle}    % page style
+\RequirePackage{\theabsdir/book/pf-list}
+\RequirePackage{\theabsdir/book/pf-creature}
+\RequirePackage{\theabsdir/book/pf-sections}
+\RequirePackage{\theabsdir/book/pf-spell}
+\RequirePackage{\theabsdir/book/pf-strings}   % Load document strings
+\RequirePackage{\theabsdir/book/pf-table}
 
 % Things I've added, will soon be mixed in with the above list
-\RequirePackage{lib/book/pf-actions}
-\RequirePackage{lib/book/pf-traits}
-\RequirePackage{lib/book/pf-rarity}
-\RequirePackage{lib/book/pf-character}
-\RequirePackage{lib/book/pf-items}
+\RequirePackage{\theabsdir/book/pf-actions}
+\RequirePackage{\theabsdir/book/pf-traits}
+\RequirePackage{\theabsdir/book/pf-rarity}
+\RequirePackage{\theabsdir/book/pf-character}
+\RequirePackage{\theabsdir/book/pf-items}
+\RequirePackage{\theabsdir/book/pf-license}
 
 % Set paragraph and line spacing
 %\linespread{1.1}%

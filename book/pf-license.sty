@@ -39,7 +39,14 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 
 % Paizo's new ORC license...
 % Really just a notice, gotta figure out the details!
-\newcommand{\InsertORC}{
-
+\newcommand{\InsertORC}[3]{
+\begin{tabular}{ l l }
+ORC Notice & This product is licensed under the ORC License held in the Library of Congress at TX 9-307-067 and available online at various locations including www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein \\
+Attribution & #1 \\
+\ifthenelse{\equal{#2}{}}{}%empty
+{Reserved Material & #2 \\}% not empty
+\ifthenelse{\equal{#3}{}}{}%empty
+{Expressly Designated Licensed Material & #3 \\}% not empty
+\end{tabular}
 }
 
