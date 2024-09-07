@@ -1,5 +1,5 @@
 # What is the title of your book?
-TITLE = Glorious Book of Knowledge
+TITLE = PF2e-TeX Spellbook
 
 ################################################################################
 ## You shouldn't have to edit anything below this line.
@@ -12,8 +12,8 @@ build:
 	mkdir -p build
 
 tex: build
-	xelatex -halt-on-error -output-directory build -interaction=batchmode -no-pdf '$(TITLE).tex'
-	xelatex -halt-on-error -output-directory build -interaction=batchmode -output-driver='xdvipdfmx -z3' '$(TITLE).tex'
+	xelatex -halt-on-error -output-directory build -recorder -interaction=batchmode -no-pdf '$(TITLE).tex'
+	xelatex -halt-on-error -output-directory build -recorder -interaction=batchmode -output-driver='xdvipdfmx -z3' '$(TITLE).tex'
 
 FORCE:
 

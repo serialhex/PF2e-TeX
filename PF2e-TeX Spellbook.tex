@@ -20,9 +20,21 @@
 \frontmatter
 
 % Your cover image, if you have one
-\pfMakeLogoCover[
-  image = lisplogo
+\pfMakeCover[
+  image = ai-generated-cover-art,
+  title = PF2e-\TeX Spellbook,
+  subtitle = {Is it a spellbook, or a cheatsheet?}
 ]
+
+This is the inside cover.
+Put some copyright stuff here, and all the legal stuff.
+Blah blah blah, copyright me and stuff...
+
+\lipsum[1-5]
+
+\InsertORC{I'm attributing stuff...\\
+}{I'm reserving Potatos!!\\
+}{Licensed all material from Sorcerers on the Shore}
 
 % Inserts Table of Contents
 \tableofcontents
@@ -30,11 +42,13 @@
 % Your content goes here...
 \mainmatter
 
+\chapter{Intro}
+
+This is the intero chapter, where I introduce things!
+
+\lipsum[6-7]
+
 % \include{./ch/Content}
-
-\lipsum[1-5]
-
-\InsertORC{I'm attributing stuff...}{I'm attributing Potatos!!}{Licensed material from WotC}
 
 \end{document}
 
