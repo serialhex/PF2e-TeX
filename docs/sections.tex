@@ -1,0 +1,73 @@
+\chapter{Sections and Cover}
+
+Sections... to organize!
+
+\begin{multicols}{2}
+
+\section{Cover}
+
+The first thing people see is the cover, so you better make it good!
+How to make the cover of this book is this:
+
+\begin{verbatim}
+\pfMakeCover[
+  image = ai-generated-cover-art,
+  title = PF2e-\TeX Spellbook,
+  subtitle = {Is it a spellbook, or a cheatsheet?}
+]
+\end{verbatim}
+
+For this you \emph{need} to have an image for the cover.
+The title \& subtitle are optional.
+This will also put the "Pathfinder Compatible" logo on the cover too.
+
+Alternately, you can just have a cover that is just an image:
+
+\begin{verbatim}
+\pfMakeLogoCover[ image = ai-generated-cover-art ]
+\end{verbatim}
+
+\section{Parts, chapters, and all that}
+
+The default \LaTeX \verb+\part+, \verb+\chapter+, \verb+\section+, etc... have all been modified.
+Feel free to use them as normal, and they will show up looking, well, interesting.
+Just to show them off, here they are (minus Part and Chapter):
+
+\section{Section}
+
+\verb+\section{Section}+
+
+\lipsum[1]
+
+\subsection{Subsection}
+
+\verb+\subsection{Subsection}+
+
+\lipsum[2]
+
+\subsubsection{Subsubsection}
+
+\verb+\subsubsection{Subsubsection}+
+
+\lipsum[3]
+
+\paragraph{Paragraph}
+
+\verb+\paragraph{Paragraph}+
+
+\lipsum[4]
+
+\subparagraph{Subparagraph}
+
+\verb+\subparagraph{Subparagraph}+
+\lipsum[5]
+
+\section{Subtitle Section}
+
+This is a little thing for emphasized text.
+It's meant to be relatively short, so magic items, traps and the like.
+
+\showmacro{\subtitlesection{Magic Item}{It's a cool item, that does MAGIC!}}
+
+\end{multicols}
+

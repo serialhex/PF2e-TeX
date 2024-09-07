@@ -9,7 +9,8 @@ all: tex
 
 # set up output dir
 build:
-	mkdir -p build
+	mkdir -p build/docs
+	# For some reason, this needs the extra `docs` part...
 
 tex: build
 	xelatex -halt-on-error -output-directory build -recorder -interaction=batchmode -no-pdf '$(TITLE).tex'
