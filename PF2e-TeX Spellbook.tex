@@ -11,6 +11,16 @@
 % Autogen text...
 \usepackage{lipsum}
 
+% A command for this document, to make showing commands easier!
+\DeclareRobustCommand{\showmacro}[1]{\string#1 #1}
+% this macro doesn't work, and I can't figure out how to make it wwork right now...
+\newenvironment{showenvironment}[1]{%
+\begin{verbatim}%
+#1%
+\end{verbatim}%
+#1%
+}
+
 % This is so we don't have Table of Contents explosion, remove if desired
 \setcounter{secnumdepth}{0}
 
@@ -23,7 +33,7 @@
 \pfMakeCover[
   image = ai-generated-cover-art,
   title = PF2e-\TeX Spellbook,
-  subtitle = {Is it a spellbook, or a cheatsheet?}
+  subtitle = {Is it a spellbook, or a cheatsheet?} % Need the braces if there is a comma in the name
 ]
 
 This is the inside cover.
@@ -44,11 +54,26 @@ Blah blah blah, copyright me and stuff...
 
 \chapter{Intro}
 
-This is the intero chapter, where I introduce things!
+You know how most Paizo products have a cool splash section at the beginning of the chapter before it gets into the nitty-gritty of the text?
+Well I haven't implemented anything like that yet!
+So be patient while I work on that.
 
-\lipsum[6-7]
+\begin{multicols}{2}
 
-% \include{./ch/Content}
+This is the intro chapter, where I introduce things!
+Most of this is going to be showcasing the different functionality that is built in to these styles.
+Each "chapter" is going to feature a different set of features.
+Feel free to look at the source, at this document, and the others under /docs.
+It will give you an idea of how much of this is intended to work.
+
+First of all, I recommend not typing everything into one *.tex file.
+For many reasons, but mainly as it is easier to organize your thoughts and whatnot if they are in separate chapters.
+
+Thus, I do this:
+
+\end{multicols}
+
+\include{docs/actions}
 
 \end{document}
 

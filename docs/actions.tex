@@ -1,0 +1,101 @@
+\chapter{Actions}
+
+\begin{multicols}{2}
+
+Actions allow you to do stuff!
+There are a few ways to go about utilizing the action symbols.
+
+\section{Vector Renders}
+
+If for some reason the Paizo font doesn't work, this will.
+They are copies of the font, as an image:
+
+\begin{itemize}
+  \item \showmacro{\actionIcon}
+  \item \showmacro{\activityTwoIcon}
+  \item \showmacro{\activityThreeIcon}
+  \item \showmacro{\freeActionIcon}
+  \item \showmacro{\reactionIcon}
+\end{itemize}
+
+You can also resize it manually like so: \showmacro{\actionIcon[2]}
+
+\section{The Official Font}
+
+Using the official Paizo font is the preferred way of doing things.
+It automatically scales as you change font sizes, so you don't have to finagle your sizes as with the vector images above.
+
+\begin{itemize}
+  \item \showmacro{\oneAction}
+  \item \showmacro{\twoAction}
+  \item \showmacro{\threeAction}
+  \item \showmacro{\freeAction}
+  \item \showmacro{\reaction}
+\end{itemize}
+
+There are also environments, especially for use when you're creating characters or monsters.
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-action}{Boop snoot}
+You attack their snoot, and it gets booped!
+\end{pf-action}
+\end{verbatim}
+\begin{pf-action}{Boop snoot}
+You attack their snoot, and it gets booped!
+\end{pf-action}
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-activity2}{Double Boop}
+The snoot gets booped twice!  It's pretty cool!
+\end{pf-activity2}
+\end{verbatim}
+\begin{pf-activity2}{Double Boop}
+The snoot gets booped twice!  It's pretty cool!
+\end{pf-activity2}
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-activity3}{Triple Boop}
+ZOMG! THREE BOOPS AT ONCE!!! I mean, you could have used the one action type three times, but this is better.
+\end{pf-activity3}
+\end{verbatim}
+\begin{pf-activity3}{Triple Boop}
+ZOMG! THREE BOOPS AT ONCE!!! I mean, you could have used the one action type three times, but this is better.
+\end{pf-activity3}
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-freeaction}{Not a Boop}
+It's a free action to not boop anything...
+\end{pf-freeaction}
+\end{verbatim}
+\begin{pf-freeaction}{Not a Boop}
+It's a free action to not boop anything...
+\end{pf-freeaction}
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-reaction}{Anti-Boop}
+You're about to get booped, boop them first!
+\end{pf-reaction}
+\end{verbatim}
+\begin{pf-reaction}{Anti-Boop}
+You're about to get booped, boop them first!
+\end{pf-reaction}
+
+\hrulefill{}
+\begin{verbatim}
+\begin{pf-misc}{Misc Stuff}
+For times you don't have an action associated with an ability, like a spell list or something.
+\end{pf-misc}
+\end{verbatim}
+\begin{pf-misc}{Misc Stuff}
+For times you don't have an action associated with an ability, like a spell list or something.
+\end{pf-misc}
+
+
+
+\end{multicols}
+
