@@ -10,7 +10,7 @@
 % cover
 \newkeycommand\pfMakeCover[
   image=,
-  logo=\theabsdir/book/Paizo/Pathfinder-Second-Edition-Compatibility-Color,
+  logo=book/Paizo/Pathfinder-Second-Edition-Compatibility-Color,
   title=Title,
   subtitle=subtitle,
   ]{
@@ -25,7 +25,7 @@
     \fontsize{48pt}{48pt}
     \selectfont
     \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*
-    \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/separator}
+    \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{book/img/separator}
     \LARGE\vfill
     \fontsize{18pt}{18pt}
     \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
@@ -54,8 +54,8 @@
   % \twocolumn%
 }
 
-%\newcommand*{\hbPartCover}{\theabsdir/book/img/part-cover}
-%\newcommand*{\hbPartSubcover}{\theabsdir/book/img/part-cover2}
+%\newcommand*{\hbPartCover}{book/img/part-cover}
+%\newcommand*{\hbPartSubcover}{book/img/part-cover2}
 %
 %\renewcommand*{\beforepartskip}{\null\vspace*{-55pt}\hspace*{-10pt}}
 %\renewcommand*{\afterpartskip}{\clearpage\hbFullPageArtHook{\hbPartSubcover}}
@@ -65,13 +65,13 @@
 %      \includegraphics[width=\paperwidth,height=\paperheight]{\hbPartCover}
 %    \end{tb*}%
 %    \begin{tb*}{\paperwidth}{0pt}{0pt}%
-%      \includegraphics[width=\paperwidth]{\theabsdir/book/img/header-part-circ}
+%      \includegraphics[width=\paperwidth]{book/img/header-part-circ}
 %    \end{tb*}%
 %    \begin{tb*}{.5\paperwidth}{0pt}{0pt}%
-%      \includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}
+%      \includegraphics[width=.5\paperwidth]{book/img/header-part}
 %    \end{tb*}%
 %    \begin{tb*}{.5\paperwidth}{.5\paperwidth}{0pt}
-%      \reflectbox{\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}}
+%      \reflectbox{\includegraphics[width=.5\paperwidth]{book/img/header-part}}
 %    \end{tb*}%
 %  }%
 %  \hspace*{-8pt}\prociono\fontsize{64pt}{64pt}\selectfont\color{chapter}PART%

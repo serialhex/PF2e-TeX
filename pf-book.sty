@@ -128,29 +128,27 @@
 }
 
 %% I have now made this functionality part of my currfile package. It is provided as a sub-package currfile-abspath, which can also be used on its own. It provides \getmainfile, \getabspath{<file>} and \getpwd which set \themainfile, \theabspath and \thepwd to the main file name (which might be different from \jobname.tex), the absolute path of the given file and the parent working directory of the compiler run.
-\usepackage{currfile-abspath}
-\getabspath{pf-book.sty}
 
 % Load other modules of this package
-\RequirePackage{\theabsdir/book/pf-art}
-\RequirePackage{\theabsdir/book/pf-box}
-\RequirePackage{\theabsdir/book/pf-colors}
-\RequirePackage{\theabsdir/book/pf-fonts}     % font definitions
-\RequirePackage{\theabsdir/book/pf-pagestyle}    % page style
-\RequirePackage{\theabsdir/book/pf-list}
-\RequirePackage{\theabsdir/book/pf-creature}
-\RequirePackage{\theabsdir/book/pf-sections}
-\RequirePackage{\theabsdir/book/pf-spell}
-\RequirePackage{\theabsdir/book/pf-strings}   % Load document strings
-\RequirePackage{\theabsdir/book/pf-table}
+\RequirePackage{book/pf-art}
+\RequirePackage{book/pf-box}
+\RequirePackage{book/pf-colors}
+\RequirePackage{book/pf-fonts}     % font definitions
+\RequirePackage{book/pf-pagestyle}    % page style
+\RequirePackage{book/pf-list}
+\RequirePackage{book/pf-creature}
+\RequirePackage{book/pf-sections}
+\RequirePackage{book/pf-spell}
+\RequirePackage{book/pf-strings}   % Load document strings
+\RequirePackage{book/pf-table}
 
 % Things I've added, will soon be mixed in with the above list
-\RequirePackage{\theabsdir/book/pf-actions}
-\RequirePackage{\theabsdir/book/pf-traits}
-\RequirePackage{\theabsdir/book/pf-rarity}
-\RequirePackage{\theabsdir/book/pf-character}
-\RequirePackage{\theabsdir/book/pf-items}
-\RequirePackage{\theabsdir/book/pf-license}
+\RequirePackage{book/pf-actions}
+\RequirePackage{book/pf-traits}
+\RequirePackage{book/pf-rarity}
+\RequirePackage{book/pf-character}
+\RequirePackage{book/pf-items}
+\RequirePackage{book/pf-license}
 
 % Set paragraph and line spacing
 %\linespread{1.1}%
