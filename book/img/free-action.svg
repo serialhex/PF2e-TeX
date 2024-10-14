@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="72.044655pt"
-   height="58.207302pt"
-   viewBox="0 0 72.044654 58.207303"
+   width="72.000008pt"
+   height="71.999992pt"
+   viewBox="0 0 72.000007 71.999994"
    version="1.1"
    id="svg762"
-   sodipodi:docname="test.pdf"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview764"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="pt"
-     showgrid="false" />
   <defs
      id="defs720">
     <g
@@ -71,12 +57,12 @@
   <g
      fill="#000000"
      fill-opacity="1"
-     id="g756"
-     transform="translate(-85.103997,-434.95206)">
+     id="g724"
+     transform="translate(-85.103997,-56.720002)">
     <use
-       xlink:href="#glyph-0-5"
+       xlink:href="#glyph-0-1"
        x="85.103996"
-       y="495.54999"
-       id="use754" />
+       y="124.22"
+       id="use722" />
   </g>
 </svg>

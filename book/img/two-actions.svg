@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="72.044655pt"
-   height="58.207302pt"
-   viewBox="0 0 72.044654 58.207303"
+   width="112.49999pt"
+   height="71.875008pt"
+   viewBox="0 0 112.49999 71.875009"
    version="1.1"
    id="svg762"
    sodipodi:docname="test.pdf"
@@ -71,12 +71,12 @@
   <g
      fill="#000000"
      fill-opacity="1"
-     id="g756"
-     transform="translate(-85.103997,-434.95206)">
+     id="g740"
+     transform="translate(-85.103997,-242.45252)">
     <use
-       xlink:href="#glyph-0-5"
+       xlink:href="#glyph-0-3"
        x="85.103996"
-       y="495.54999"
-       id="use754" />
+       y="309.89001"
+       id="use738" />
   </g>
 </svg>
