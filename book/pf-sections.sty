@@ -2,6 +2,7 @@
 \RequirePackage[newparttoc]{titlesec}	% Used to adjust (sub)section formatting
 \RequirePackage{amssymb}
 \RequirePackage{everypage}
+\usepackage{float}    % To force placement
 
 \iftoggle{multitoc}{%
   \RequirePackage[toc]{multitoc}
@@ -13,7 +14,7 @@
   logo=book/Paizo/Pathfinder-Second-Edition-Compatibility-Color,
   title=Title,
   subtitle=subtitle,
-  ]{
+]{
   % \onecolumn
   \thispagestyle{empty}
   \AddThispageHook{
@@ -37,7 +38,7 @@
 % Logo Only Cover
 \newkeycommand\pfMakeLogoCover[
   image=,
-  ]{
+]{
   \pagenumbering{alph}
   % \onecolumn
   \thispagestyle{empty}
@@ -52,6 +53,35 @@
   \pagenumbering{roman}
   \setcounter{page}{0} %% Page zero is effectively the inside cover of the book.  It's also the coolest number!
   % \twocolumn%
+}
+
+% Part splash page
+
+\newkeycommand\pfMakeSplashHeader[
+  image=,
+  title=Title,
+  header_height=header_height,
+  text_body_height=text_body_height  
+]{
+  \begin{figure*}[h]
+    \vspace*{-1.5cm}
+    \hspace*{-1.5cm}
+    \makebox[\paperwidth][c]{
+      \includegraphics[width=\paperwidth,height=15cm,keepaspectratio]{\commandkey{image}}
+    }
+  \end{figure*}
+
+  \begin{center}
+    % You may need to adjust this vspace to make sure the title looks good with your image aspect ratio/pixels
+    \vspace*{\commandkey{header_height}}
+    \prociono%
+    \fontsize{48pt}{48pt}
+    \selectfont
+    \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}
+    \normalfont\normalsize
+  \end{center}
+  % You might need to adjust the vspace based on the aspect ratio/pixels of your splash image
+  \vspace{\commandkey{text_body_height}}
 }
 
 %\newcommand*{\hbPartCover}{book/img/part-cover}
@@ -75,7 +105,7 @@
 %    \end{tb*}%
 %  }%
 %  \hspace*{-8pt}\prociono\fontsize{64pt}{64pt}\selectfont\color{chapter}PART%
-%}
+% }
 
 % Adjust section and subsection colors and font (change 0em to 1em if you commented the removal of section numbering)
 %\titleformat{} % cmd
@@ -148,7 +178,7 @@
 
 % Special command for magic items, traps, and the like.
 \newcommand{\subtitlesection}[2]{
-    \subsubsection{#1}\vspace{-1ex}
-    \textit{#2}\vspace{1ex}\par
+  \subsubsection{#1}\vspace{-1ex}
+  \textit{#2}\vspace{1ex}\par
 }
 
