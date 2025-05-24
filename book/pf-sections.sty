@@ -60,8 +60,8 @@
 \newkeycommand\pfMakeSplashHeader[
   image=,
   title=Title,
-  header_height=header_height,
-  text_body_height=text_body_height  
+  headerHeight=headerHeight,
+  textBodyHeight=textBodyHeight  
 ]{
   \begin{figure*}[h]
     \vspace*{-1.5cm}
@@ -73,7 +73,7 @@
 
   \begin{center}
     % You may need to adjust this vspace to make sure the title looks good with your image aspect ratio/pixels
-    \vspace*{\commandkey{header_height}}
+    \vspace*{\commandkey{headerHeight}}
     \prociono%
     \fontsize{48pt}{48pt}
     \selectfont
@@ -81,7 +81,7 @@
     \normalfont\normalsize
   \end{center}
   % You might need to adjust the vspace based on the aspect ratio/pixels of your splash image
-  \vspace{\commandkey{text_body_height}}
+  \vspace{\commandkey{textBodyHeight}}
 }
 
 %\newcommand*{\hbPartCover}{book/img/part-cover}
