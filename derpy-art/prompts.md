@@ -13,3 +13,4 @@ Hyper realistic fantasy setting with a wizard, a cleric, a fighter, and a theif.
 
 A highly detailed photorealistic depiction of a group of fantasy adventurers gathered under a massive ancient tree during golden hour. The group includes a knight in shining armor holding a sword, a rugged dwarf with a red beard dressed in chainmail, a graceful elven archer with a bow, and a cloaked wizard holding a staff. They are inspecting a small dragon hanging from a branch, with a chest of treasure at their feet. The setting features lush greenery, soft golden light filtering through the leaves, and a cinematic atmosphere. Subtle surreal elements are woven into the scene: distorted anatomy like elongated fingers, slightly mismatched facial proportions, or objects bending unnaturally. The otherworldly mood is emphasized with glowing, ethereal lights and dreamlike inconsistencies in the environment.
 
+Goblin village splash banner.
