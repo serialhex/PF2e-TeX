@@ -21,6 +21,15 @@
 #1%
 }
 
+% The following commands redefine Chapter to remove \cleardoublepage and \clearpage from \chapter
+% so that chapters don't automatically create new pages.
+\makeatletter
+\renewcommand\chapter{\thispagestyle{plain}%
+\global\@topnum\z@
+\@afterindentfalse
+\secdef\@chapter\@schapter}
+\makeatother
+
 % This is so we don't have Table of Contents explosion, remove if desired
 \setcounter{secnumdepth}{0}
 
@@ -56,10 +65,17 @@ Blah blah blah, copyright me and stuff...
 }{Licensed all material from Sorcerers on the Shore}
 
 % Inserts Table of Contents
+\clearpage
 \tableofcontents
 
 % Your content goes here...
 \mainmatter
+\pfMakeSplashHeader[
+  image = ai-generated-splash,
+  title = Splash image test title,
+  headerHeight = -7cm,
+  textBodyHeight = 4.5cm
+]
 
 \chapter{Intro}
 
@@ -69,16 +85,16 @@ So be patient while I work on that.
 
 \begin{multicols}{2}
 
-This is the intro chapter, where I introduce things!
-Most of this is going to be showcasing the different functionality that is built in to these styles.
-Each "chapter" is going to feature a different set of features.
-Feel free to look at the source, at this document, and the others under /docs.
-It will give you an idea of how much of this is intended to work.
+  This is the intro chapter, where I introduce things!
+  Most of this is going to be showcasing the different functionality that is built in to these styles.
+  Each "chapter" is going to feature a different set of features.
+  Feel free to look at the source, at this document, and the others under /docs.
+  It will give you an idea of how much of this is intended to work.
 
-First of all, I recommend not typing everything into one *.tex file.
-For many reasons, but mainly as it is easier to organize your thoughts and whatnot if they are in separate chapters.
+  First of all, I recommend not typing everything into one *.tex file.
+  For many reasons, but mainly as it is easier to organize your thoughts and whatnot if they are in separate chapters.
 
-Thus, I do this:
+  Thus, I do this:
 
 \end{multicols}
 
