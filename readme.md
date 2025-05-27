@@ -11,6 +11,10 @@ I do want and appreciate pull requests more than bug reports. :-D
 
 ## How to use
 
+There is an "old" way this package worked.
+If you were using that way and want to continue doing so, checkout the `ye-olde-waye` branch.
+Be warned, here be dragons, for updates shall not happen!
+
 ### Initial Setup
 
 First of all, go accept the Paizo Compatability License here: [https://paizo.com/licenses/compatibility](https://paizo.com/licenses/compatibility).
