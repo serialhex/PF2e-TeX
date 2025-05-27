@@ -4,6 +4,7 @@ $title = "PF2e-TeX Spellbook"
 # Make sure build directory is there
 $dir = "./build"
 if (!(Test-Path -Path $dir)) { md $dir }
+if (!(Test-Path -Path $dir/docs)) { md $dir/docs }
 
 # Pre-generate, to get a lot of the general stuff out of the way
 Write-Output "Generating PDF"
@@ -18,4 +19,3 @@ if ($?) {
 } else {
   Write-Output "Build failed for some reason.  Check '$title.log' for more information"
 }
-
