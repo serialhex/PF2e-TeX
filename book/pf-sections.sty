@@ -2,6 +2,7 @@
 \RequirePackage[newparttoc]{titlesec}	% Used to adjust (sub)section formatting
 \RequirePackage{amssymb}
 \RequirePackage{everypage}
+\usepackage{float}    % To force placement
 
 \iftoggle{multitoc}{%
   \RequirePackage[toc]{multitoc}
@@ -10,10 +11,10 @@
 % cover
 \newkeycommand\pfMakeCover[
   image=,
-  logo=\theabsdir/book/Paizo/Pathfinder-Second-Edition-Compatibility-Color,
+  logo=book/Paizo/Pathfinder-Second-Edition-Compatibility-Color,
   title=Title,
   subtitle=subtitle,
-  ]{
+]{
   % \onecolumn
   \thispagestyle{empty}
   \AddThispageHook{
@@ -25,7 +26,7 @@
     \fontsize{48pt}{48pt}
     \selectfont
     \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*
-    \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/separator}
+    \normalfont\normalsize%\includegraphics[width=.5\paperwidth]{book/img/separator}
     \LARGE\vfill
     \fontsize{18pt}{18pt}
     \fillstroke{[1]}{[0]}{0.5}{\textbf{\commandkey{subtitle}}}
@@ -37,7 +38,7 @@
 % Logo Only Cover
 \newkeycommand\pfMakeLogoCover[
   image=,
-  ]{
+]{
   \pagenumbering{alph}
   % \onecolumn
   \thispagestyle{empty}
@@ -54,8 +55,37 @@
   % \twocolumn%
 }
 
-%\newcommand*{\hbPartCover}{\theabsdir/book/img/part-cover}
-%\newcommand*{\hbPartSubcover}{\theabsdir/book/img/part-cover2}
+% Part splash page
+
+\newkeycommand\pfMakeSplashHeader[
+  image=,
+  title=Title,
+  headerHeight=headerHeight,
+  textBodyHeight=textBodyHeight  
+]{
+  \begin{figure*}[h]
+    \vspace*{-1.5cm}
+    \hspace*{-1.5cm}
+    \makebox[\paperwidth][c]{
+      \includegraphics[width=\paperwidth,height=15cm,keepaspectratio]{\commandkey{image}}
+    }
+  \end{figure*}
+
+  \begin{center}
+    % You may need to adjust this vspace to make sure the title looks good with your image aspect ratio/pixels
+    \vspace*{\commandkey{headerHeight}}
+    \prociono%
+    \fontsize{48pt}{48pt}
+    \selectfont
+    \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}
+    \normalfont\normalsize
+  \end{center}
+  % You might need to adjust the vspace based on the aspect ratio/pixels of your splash image
+  \vspace{\commandkey{textBodyHeight}}
+}
+
+%\newcommand*{\hbPartCover}{book/img/part-cover}
+%\newcommand*{\hbPartSubcover}{book/img/part-cover2}
 %
 %\renewcommand*{\beforepartskip}{\null\vspace*{-55pt}\hspace*{-10pt}}
 %\renewcommand*{\afterpartskip}{\clearpage\hbFullPageArtHook{\hbPartSubcover}}
@@ -65,17 +95,17 @@
 %      \includegraphics[width=\paperwidth,height=\paperheight]{\hbPartCover}
 %    \end{tb*}%
 %    \begin{tb*}{\paperwidth}{0pt}{0pt}%
-%      \includegraphics[width=\paperwidth]{\theabsdir/book/img/header-part-circ}
+%      \includegraphics[width=\paperwidth]{book/img/header-part-circ}
 %    \end{tb*}%
 %    \begin{tb*}{.5\paperwidth}{0pt}{0pt}%
-%      \includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}
+%      \includegraphics[width=.5\paperwidth]{book/img/header-part}
 %    \end{tb*}%
 %    \begin{tb*}{.5\paperwidth}{.5\paperwidth}{0pt}
-%      \reflectbox{\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}}
+%      \reflectbox{\includegraphics[width=.5\paperwidth]{book/img/header-part}}
 %    \end{tb*}%
 %  }%
 %  \hspace*{-8pt}\prociono\fontsize{64pt}{64pt}\selectfont\color{chapter}PART%
-%}
+% }
 
 % Adjust section and subsection colors and font (change 0em to 1em if you commented the removal of section numbering)
 %\titleformat{} % cmd
@@ -148,7 +178,7 @@
 
 % Special command for magic items, traps, and the like.
 \newcommand{\subtitlesection}[2]{
-    \subsubsection{#1}\vspace{-1ex}
-    \textit{#2}\vspace{1ex}\par
+  \subsubsection{#1}\vspace{-1ex}
+  \textit{#2}\vspace{1ex}\par
 }
 

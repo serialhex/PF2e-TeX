@@ -4,11 +4,11 @@
 % Actions, Reactions, and things like that
 %
 
-\newcommand{\actionIcon}[1][1.0]{\pfInlineArt[#1]{\theabsdir/book/img/one-action}}
-\newcommand{\activityTwoIcon}[1][1.0]{\pfInlineArt[#1]{\theabsdir/book/img/two-actions}}
-\newcommand{\activityThreeIcon}[1][1.0]{\pfInlineArt[#1]{\theabsdir/book/img/three-actions}}
-\newcommand{\freeActionIcon}[1][1.0]{\pfInlineArt[#1]{\theabsdir/book/img/free-Action}}
-\newcommand{\reactionIcon}[1][1.0]{\pfInlineArt[#1]{\theabsdir/book/img/reaction}}
+\newcommand{\actionIcon}[1][1.0]{\pfInlineArt[#1]{book/img/one-action}}
+\newcommand{\activityTwoIcon}[1][1.0]{\pfInlineArt[#1]{book/img/two-actions}}
+\newcommand{\activityThreeIcon}[1][1.0]{\pfInlineArt[#1]{book/img/three-actions}}
+\newcommand{\freeActionIcon}[1][1.0]{\pfInlineArt[#1]{book/img/free-Action}}
+\newcommand{\reactionIcon}[1][1.0]{\pfInlineArt[#1]{book/img/reaction}}
 
 \newcommand{\oneAction}{{\pfIcons\selectfont [one-action]}}
 \newcommand{\twoAction}{{\pfIcons\selectfont [two-actions]}}
@@ -21,27 +21,33 @@
 % Actions & Activities Only for use with the font!
 %
 \newenvironment{pf-action}[1]{%
-  \noindent\oneAction\hangindent=\baselineskip\textbf{#1}%
+  \noindent\textbf{#1}\hspace{0.5em}\oneAction\hspace{0.5em}%
+  \hangindent=\baselineskip%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity2}[1]{%
-  \noindent\twoAction\hangindent=\baselineskip\textbf{#1}%
+  \noindent\textbf{#1}\hspace{0.5em}\twoAction\hspace{0.5em}%
+  \hangindent=\baselineskip%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-activity3}[1]{%
-  \noindent\threeAction\hangindent=\baselineskip\textbf{#1}%
+  \noindent\textbf{#1}\hspace{0.5em}\threeAction\hspace{0.5em}%
+  \hangindent=\baselineskip%
   {\unskip}%
 }{\par}
 
 \newenvironment{pf-freeaction}[1]{%
-  \noindent\freeAction\hangindent=\baselineskip\textbf{#1}%
+  \noindent\textbf{#1}\hspace{0.5em}\freeAction\hspace{0.5em}%
+  \hangindent=\baselineskip%
   {\unskip}%
 }{\par}
 
-\newenvironment{pf-reaction}[1]{%
-  \noindent\reaction\hangindent=\baselineskip\textbf{#1}%
+\newenvironment{pf-reaction}[2]{%
+  \noindent\textbf{#1}\hspace{0.5em}\reaction\hspace{0.5em}\textbf{Trigger} %
+  #2 \textbf{Effect}%
+  \hangindent=\baselineskip%
   {\unskip}%
 }{\par}
 
@@ -50,4 +56,18 @@
   \textbf{#1}%
   {\unskip}%
 }{\par}
+
+% \pfAtkMelee{hatchet +9 (agile, sweep)}{1d6+7 slashing}
+% \textbf{Melee} \oneAction{} hatchet +9 (agile, sweep) \textbf{Damage} 1d6+7 slashing
+\newcommand{\pfAtkMelee}[2]{%
+  \noindent\textbf{Melee}\hspace{0.5em}\oneAction{}\hspace{0.5em}#1 %
+  \hangindent=\baselineskip\textbf{Damage} #2%
+}
+
+% \pfAtkRanged{hatchet +9 (agile, sweep, thrown 10 feet)}{1d6+5 slashing}
+% \textbf{Ranged}\oneAction{} hatchet +9 (agile, sweep, thrown 10 feet) \textbf{Damage} 1d6+5 slashing
+\newcommand{\pfAtkRanged}[2]{%
+  \textbf{Ranged}\hspace{0.5em}\oneAction{}\hspace{0.5em}#1 %
+  \hangindent=\baselineskip\textbf{Damage} #2%
+}
 

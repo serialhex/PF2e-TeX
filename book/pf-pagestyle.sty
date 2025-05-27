@@ -12,7 +12,7 @@
 \addtolength{\nobgfooterheight}{-\textheight}
 \addtolength{\nobgfooterheight}{-\footskip}
 
-\newcommand{\background}{\theabsdir/book/img/background}
+\newcommand{\background}{book/img/background}
 \newcommand{\backgroundl}{\background}
 \newcommand{\backgroundr}{\background}
 
@@ -35,7 +35,7 @@
 
 \fancyfoot[LE]{
   \begin{tikzpicture}[remember picture,overlay]
-    % \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{\theabsdir/book/img/footerscroll}};
+    % \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{book/img/footerscroll}};
     \node[xshift=20pt,yshift=30pt] at (current page.south west) {\pfFooterFont\textcolor{pfFooterColor}{\thepage}};
     \node[anchor=south west,xshift=\marginparwidth+\marginparpush,yshift=23pt] at (current page.south west) {\pfFooterFont{\textcolor{pfFooterColor}{\nouppercase\leftmark}}};
   \end{tikzpicture}
@@ -43,7 +43,7 @@
 
 \fancyfoot[RO]{
   \begin{tikzpicture}[remember picture,overlay]
-    % \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{\theabsdir/book/img/footerscroll}};
+    % \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=43pt]{book/img/footerscroll}};
     \node[xshift=-20pt,yshift=30pt] at (current page.south east) {\pfFooterFont\textcolor{pfFooterColor}{\thepage}};
     \node[anchor=south east,xshift=-\marginparwidth-\marginparpush,yshift=23pt] at (current page.south east) {\pfFooterFont{\textcolor{pfFooterColor}{\nouppercase\leftmark}}};
   \end{tikzpicture}
@@ -57,9 +57,9 @@
   \fancyhead[O]{
     \begin{tikzpicture}[remember picture,overlay]
       \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundr}};
-      % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{\theabsdir/book/img/header-part-circ}};
-      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}};
-      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}};
+      % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{book/img/header-part-circ}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{book/img/header-part}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{book/img/header-part}};
     \end{tikzpicture}
   }
 }
@@ -69,9 +69,9 @@
   \fancyhead[E]{
     \begin{tikzpicture}[remember picture,overlay]
       \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundl}};
-      % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{\theabsdir/book/img/header-part-circ}};
-      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}};
-      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-part}};
+      % \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{book/img/header-part-circ}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{book/img/header-part}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{book/img/header-part}};
     \end{tikzpicture}
   }
 }
@@ -81,8 +81,8 @@
   \fancyhead[O]{
     \begin{tikzpicture}[remember picture,overlay]
       \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundr}};
-      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-chapter}};
-      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-chapter}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{book/img/header-chapter}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{book/img/header-chapter}};
     \end{tikzpicture}
   }
 }
@@ -92,8 +92,8 @@
   \fancyhead[E]{
     \begin{tikzpicture}[remember picture,overlay]
       \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundl}};
-      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-chapter}};
-      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{\theabsdir/book/img/header-chapter}};
+      % \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{book/img/header-chapter}};
+      % \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{book/img/header-chapter}};
     \end{tikzpicture}
   }
 }
