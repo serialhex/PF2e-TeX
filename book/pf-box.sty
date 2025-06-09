@@ -33,10 +33,10 @@
   arc=0mm,
   fonttitle=\pfBoxTitleFont,
   fontupper=\pfBoxBodyFont,
-  title=#1,
+  title={#1},
   colback={#2!75!white},
   colframe={#2!75!black},
-  colbacktitle=#2,
+  colbacktitle={#2},
   opacityback=0.5
 }
 
@@ -61,7 +61,7 @@
 }
 
 \newtcolorbox{pf-titlebox}[2][]{
-  title=#2,
+  title={#2},
   left=1mm,
   right=1mm,
   enhanced,
@@ -305,7 +305,8 @@
   overlay={
     \foreach \n in {north east,north west,south east,south west}
     {\draw [title1, fill=title1] (frame.\n) circle (2pt); }; },
-  after={\vspace{5pt plus 1pt}\noindent}
+  after={\vspace{5pt plus 1pt}\noindent},
+  breakable
 }
 
 %\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em

@@ -81,7 +81,7 @@
 \newenvironment{pf-table2}[1][lX]{
     \par\vspace*{8pt}
     \noindent
-    \fontfamily{lmss}\selectfont %Select font
+    \pfTableBodyFont %Select font
     \rowcolors{1}{tablecolor2}{tablecolor1} % Alternate colors
     \tabularx{\linewidth}{#1}
 }
@@ -110,7 +110,7 @@
 
     % \begin{table*}[t]
     \centering
-    \fontfamily{lmss}\selectfont %Select font
+    \pfTableBodyFont\selectfont %Select font
     % \rowcolors{1}{lightgray}{} % Alternate colors
 
     \tabu to \textwidth {l|c|c|c|c|c|X}
